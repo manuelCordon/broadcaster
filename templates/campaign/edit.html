@@ -1,0 +1,183 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block include_styles %}
+    <link rel="stylesheet" href="{% static 'plugins/vertical-tabs/bootstrap.vertical-tabs.css' %}" />
+    <link rel="stylesheet" href="{% static 'plugins/chosen/chosen.css' %}" />
+    <link rel="stylesheet" href="{% static 'plugins/stream_table/stream_table.css' %}" />
+    <link rel="stylesheet" href="{% static 'plugins/datetimepicker/css/bootstrap-datetimepicker.min.css' %}" />
+{% endblock %}
+
+
+{% block include_scripts %}
+    <script type="application/javascript" src="{% static 'plugins/chosen/chosen.jquery.js' %}"></script>
+    <script type="application/javascript" src="{% static 'plugins/stream_table/stream_table.js' %}"></script>
+    <script type="application/javascript" src="{% static 'plugins/mustache/mustache.js' %}"></script>
+    <script type="application/javascript" src="{% static 'plugins/datetimepicker/js/moment-2.5.1.js' %}"></script>
+    <script type="application/javascript" src="{% static 'plugins/datetimepicker/js/bootstrap-datetimepicker.min.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<h1>Editor de campaña</h1>
+<form role="form" method="post" action="/campaign/save" {% if form.is_multipart %}enctype="multipart/form-data"{% endif %}>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        Datos
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+            <div class="row">
+                <label for="fileToUpload">Archivo</label><br />
+                <input type="file" class="btn btn-default" name="fileToUpload" id="fileToUpload" onchange="fileSelected();"/>
+            </div>
+            <div id="fileName"></div>
+            <div id="fileSize"></div>
+            <div id="fileType"></div>
+            <div id="display"></div>
+            <div class="row">
+        </div>
+        <div id="progressNumber"></div>
+        </div>
+        <div class="form-group">
+            <label for="name_id">Listas negras a aplicar</label>
+            {{ form.blacklists }}
+        </div>
+        <div class="form-group">
+            <label for="name_id">Listas blancas a aplicar</label>
+            {{ form.whitelists }}
+        </div>
+    </div>
+</div>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        Información general
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+            <label for="name_id">Nombre de campaña</label>
+            {{ form.name }}
+        </div>
+        <div class="form-group">
+            <label for="name_id">Volumen de envios</label>
+            {{ form.estimated_volume }}
+        </div>
+        <div class="form-group">
+            <label for="name_id">Propietario</label>
+            {{ form.owner }}
+        </div>
+        <div class="form-group">
+            <label for="name_id">Categoría del producto</label>
+            {{ form.category }}
+        </div>
+        <div class="form-group">
+            <label for="name_id">Nombre del producto</label>
+            {{ form.product }}
+        </div>
+    </div>
+</div>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        Calendarización
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+            <label for="name_id">Destino (marcación)</label>
+            {{ form.destination }}
+        </div>
+        <div class="form-group">
+            <label for="name_id">Fecha y hora de inicio</label>
+            <div class="input-group datetimepicker">
+                {{ form.start_date }}
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="name_id">Fecha y hora de finalización</label>
+            <div class="input-group datetimepicker">
+                {{ form.end_date }}
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="name_id">Prioridad</label>
+            {{ form.priority }}
+        </div>
+    </div>
+</div>
+    <!-- hidden fields -->
+    {{ form.campaign_id }}
+    <input type="submit" class="btn btn-success" value="Guardar" />
+</form>
+{% endblock %}
+
+{% block body_end %}
+    <script type="application/javascript">
+
+    $(function() {
+                $(".chosen-select").chosen();
+                $(".datetimepicker").datetimepicker();
+            }
+    );
+    </script>
+
+    <script type="text/javascript">
+      function fileSelected() {
+        var file = document.getElementById('fileToUpload').files[0];
+        if (file) {
+          var fileSize = 0;
+          if (file.size > 1024 * 1024)
+            fileSize = (Math.round(file.size * 100 / (1024 * 1024)) / 100).toString() + 'MB';
+          else
+            fileSize = (Math.round(file.size * 100 / 1024) / 100).toString() + 'KB';
+
+          document.getElementById('fileName').innerHTML = 'Name: ' + file.name;
+          document.getElementById('fileSize').innerHTML = 'Size: ' + fileSize;
+          document.getElementById('fileType').innerHTML = 'Type: ' + file.type;
+
+          uploadFile();
+        }
+      }
+
+      function uploadFile() {
+        var fd = new FormData();
+        fd.enctype="multipart/form-data";
+        fd.append("_id", document.getElementById('id_campaign_id'));
+        fd.append("fileToUpload", document.getElementById('fileToUpload').files[0]);
+        var xhr = new XMLHttpRequest();
+        xhr.upload.addEventListener("progress", uploadProgress, false);
+        xhr.addEventListener("load", uploadComplete, false);
+        xhr.addEventListener("error", uploadFailed, false);
+        xhr.addEventListener("abort", uploadCanceled, false);
+        xhr.open("POST", "/campaign/upload");
+        xhr.send(fd);
+      }
+
+      function uploadProgress(evt) {
+        if (evt.lengthComputable) {
+          var percentComplete = Math.round(evt.loaded * 100 / evt.total);
+          document.getElementById('progressNumber').innerHTML = percentComplete.toString() + '%';
+        }
+        else {
+          document.getElementById('progressNumber').innerHTML = 'unable to compute';
+        }
+      }
+
+      function uploadComplete(evt) {
+        alert(evt.target.responseText);
+          document.getELementById('id_campaign_id').innerHTML = evt.target.responseText;
+      }
+
+      function uploadFailed(evt) {
+          alert("Error");
+      }
+
+      function uploadCanceled(evt) {
+        alert("The upload has been canceled by the user or the browser dropped the connection.");
+      }
+    </script>
+
+{% endblock %}

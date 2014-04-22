@@ -1,0 +1,34 @@
+.st_search {
+    float: left;
+    margin-bottom: 5px;
+    border: 1px solid #E4E4E4;
+    border-radius: 5px;
+    height: 32px;
+    padding-left: 4px;
+    width: 300px;
+}
+
+.st_per_page {
+    display: none;
+}
+
+.st_pagination {
+    float: right;
+}
+
+.st_pagination .pagination {
+    margin: 0;
+}
+
+#summary {
+    float: right;
+}
+
+#found {
+    float: right;
+    margin-top: 10px;
+}
+
+#noresults {
+    font-style:italic;
+}

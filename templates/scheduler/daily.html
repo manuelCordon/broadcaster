@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block include_styles %}
+    <link rel="stylesheet" href="{% static 'plugins/vertical-tabs/bootstrap.vertical-tabs.css' %}" />
+    <link rel="stylesheet" href="{% static 'plugins/chosen/chosen.css' %}" />
+    <link rel="stylesheet" href="{% static 'plugins/stream_table/stream_table.css' %}" />
+    <link rel="stylesheet" href="{% static 'plugins/datetimepicker/css/bootstrap-datetimepicker.min.css' %}" />
+    <style>
+        tr{
+            border:solid;
+            border-width: 1px;
+        }
+        td:focus{
+            border: solid;
+            border-width: 2px;
+        }
+    </style>
+{% endblock %}
+
+
+{% block include_scripts %}
+    <script type="application/javascript" src="{% static 'plugins/chosen/chosen.jquery.js' %}"></script>
+    <script type="application/javascript" src="{% static 'plugins/stream_table/stream_table.js' %}"></script>
+    <script type="application/javascript" src="{% static 'plugins/mustache/mustache.js' %}"></script>
+    <script type="application/javascript" src="{% static 'plugins/datetimepicker/js/moment-2.5.1.js' %}"></script>
+    <script type="application/javascript" src="{% static 'plugins/datetimepicker/js/bootstrap-datetimepicker.min.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+
+    <table class="table table-striped table-hover">
+        <tr>
+            <th>Nombre</th>
+            <th>8:00</th>
+            <th>9:00</th>
+            <th>10:00</th>
+            <th>11:00</th>
+            <th>12:00</th>
+            <th>13:00</th>
+            <th>14:00</th>
+            <th>15:00</th>
+            <th>16:00</th>
+            <th>17:00</th>
+            <th>18:00</th>
+            <th>19:00</th>
+        </tr>
+        {% for c in campaigns %}
+            <tr>
+                <th>{{ c.name }}</th>
+                {% for tps_hour in c.tps_hour %}
+                    <td contenteditable="true">{{ tps_hour }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Campañas disponibles</h1>
+    <hr />
+    {% if message == "save_ok" %}
+        <div class="alert alert-success alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <strong>Guardado!</strong> Los cambios fueron almacenados exitosamente.
+        </div>
+
+    {% endif %}
+    <table class="table table-striped table-hover">
+        <tr>
+            <th>Nombre</th>
+            <th>Inicio</th>
+            <th>Fin</th>
+            <td>Estado</td>
+            <th>
+                <a class="btn btn-success" href="/campaign/new"><span class="glyphicon glyphicon-plus"> New</span></a>
+            </th>
+        </tr>
+        {% for c in campaigns %}
+            <tr>
+                <td>{{ c.name }}</td>
+                <td>{{ c.start_date }}</td>
+                <td>{{ c.end_date }}</td>
+                <td>{{ c.status }}</td>
+                <td>
+                    <a class="btn btn-primary" href="/campaign/edit/{{ c.campaign_id }}"><span class="glyphicon glyphicon-pencil"></span></a>
+                    <a class="btn btn-danger" href="/campaign/delete/{{ c.campaign_id }}"><span class="glyphicon glyphicon-trash"></span></a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

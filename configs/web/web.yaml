@@ -1,0 +1,6 @@
+debug: True
+
+host: http://127.0.0.1:8000
+mount: /
+cdn_url: http://static.interactuamovil.com
+static_url: /static/

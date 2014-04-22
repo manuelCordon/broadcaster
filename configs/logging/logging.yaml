@@ -1,0 +1,5 @@
+file_path: /tmp/hw.log
+level: debug
+default_level: debug
+console_level: debug
+file_level: debug

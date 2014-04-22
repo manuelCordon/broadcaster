@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"  media="screen">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+
+
+      {% load static %}
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        <link rel="stylesheet" href="{% static 'css/tigo.css' %}">
+
+    <!-- template specific styles -->
+        {% block include_styles %}{% endblock %}
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+        <link href="//netdna.bootstrapcdn.com/respond-proxy.html" id="respond-proxy" rel="respond-proxy" />
+        <link href="{% static 'ie/respond.proxy.gif' %}" id="respond-redirect" rel="respond-redirect" />
+        <script src="{% static 'ie/html5shiv.js' %}"></script>
+        <script src="{% static 'ie/respond.min.js' %}"></script>
+        <script src="{% static 'ie/respond.proxy.js' %}"></script>
+        <![endif]-->
+
+        <style type="text/css">
+        {% block css %}{% endblock %}
+        </style>
+    </head>
+    <body>
+        {% include "site/header.html" %}
+        <div class="container main-container">
+            {% block navigation %}{% endblock %}
+            {% block content %}{% endblock %}
+        </div> <!-- /.main-container -->
+        {% include "site/footer.html" %}
+        <script src="//code.jquery.com/jquery.js" type="application/javascript"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js" type="application/javascript"></script>
+
+    <!-- template specific scripts -->
+        {% block include_scripts %}{% endblock %}
+
+    <!-- multi purpose body end block -->
+        {% block body_end %} {% endblock %}
+    </body>
+</html>

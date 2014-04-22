@@ -1,0 +1,8 @@
+name: tigo
+artifact: im-apps-broadcaster-tigo
+
+apps:
+    - 'django.contrib.contenttypes'
+    - 'django.contrib.sessions'
+    - 'django.contrib.staticfiles'
+    - 'django.contrib.auth'
