@@ -6,9 +6,8 @@
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1"></button>
         <div class="navbar-brand"><img src="{% static 'images/logo.png' %}" heigth="40" width="40" /> Broadcaster</div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="/campaign/list">Lista de campañas</a></li>
-            <li><a href="/scheduler/daily">Calendarizador</a></li>
-            <li><a href="/reports/progress" >Reporte de progreso</a></li>
+            <li class="active"><a href="/campaign/list">Listas negras</a></li>
+            <li><a href="/scheduler/daily">Listas blancas</a></li>
       </ul>
     </nav>
 {% endblock %}
@@ -51,4 +50,7 @@
         {% endfor %}
     </table>
     <a class="btn btn-primary" href="/scheduler/daily">Ir a calendarizador</a>
+{% endblock %}
+
+{% block body_end %}
 {% endblock %}

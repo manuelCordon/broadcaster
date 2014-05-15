@@ -396,7 +396,7 @@ if(!String.prototype.formatNum) {
 		data.cal = this;
 		data.day = 1;
 
-		// Getting list of days in a week in correct order. Works for month and week views
+		// Getting list of days in a week in correct order. Works for month and week controllers
 		if(getExtentedOption(this, 'first_day') == 1) {
 			data.months = [this.locale.d1, this.locale.d2, this.locale.d3, this.locale.d4, this.locale.d5, this.locale.d6, this.locale.d0]
 		} else {

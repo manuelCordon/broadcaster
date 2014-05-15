@@ -1,5 +1,6 @@
 logging: logging/logging
 web: web/web
 config: administration/config
+mysql: mysql/mysql
 templates:
 

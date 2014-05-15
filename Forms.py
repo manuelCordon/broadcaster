@@ -28,12 +28,6 @@ class CampaignForm(forms.Form):
         })
     )
 
-    estimated_volume = forms.IntegerField(
-        widget=forms.NumberInput({
-            "class": "form-control"
-        })
-    )
-
     owner = forms.ChoiceField(
         choices=ConfigDB().get_users(role="owner"),
         required=False,
@@ -53,6 +47,17 @@ class CampaignForm(forms.Form):
         required=False
     )
 
+
+    message = forms.CharField(
+        max_length=160,
+        label="Mensaje",
+        widget=forms.TextInput({
+            "class": "form-control",
+            "placeholder": "Mensaje",
+        })
+
+    )
+
     destination = forms.ChoiceField(
         choices=ConfigDB().get_destinations(),
         widget=forms.Select({"class": "chosen-select form-control"}),
@@ -61,12 +66,12 @@ class CampaignForm(forms.Form):
 
     start_date = forms.DateTimeField(
         required=True,
-        widget=forms.DateTimeInput({"class": "form-control"})
+        widget=forms.TextInput({"class": "form-control", "data-date-format": "yyyy-mm-dd"})
     )
 
     end_date = forms.DateTimeField(
         required=True,
-        widget=forms.DateTimeInput({"class": "form-control"})
+        widget=forms.DateInput({"class": "form-control"})
     )
 
     priority = forms.ChoiceField(
@@ -99,18 +104,6 @@ class CampaignForm(forms.Form):
         widget=forms.HiddenInput(),
         required=False
     )
-
-    #owner_name = forms.CharField(
-    #    widget=forms.HiddenInput()
-    #)
-
-    #product_name = forms.CharField(
-    #    widget=forms.HiddenInput()
-    #)
-
-    #category_name = forms.CharField(
-    #    widget=forms.HiddenInput()
-    #)
 
     def __init__(self, *args, **kwargs):
         super(CampaignForm, self).__init__(*args, **kwargs)

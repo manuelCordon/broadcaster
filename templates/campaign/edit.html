@@ -14,12 +14,12 @@
     <script type="application/javascript" src="{% static 'plugins/stream_table/stream_table.js' %}"></script>
     <script type="application/javascript" src="{% static 'plugins/mustache/mustache.js' %}"></script>
     <script type="application/javascript" src="{% static 'plugins/datetimepicker/js/moment-2.5.1.js' %}"></script>
-    <script type="application/javascript" src="{% static 'plugins/datetimepicker/js/bootstrap-datetimepicker.min.js' %}"></script>
+    <script type="application/javascript" src="{% static 'plugins/datetimepicker/js/bootstrap-datetimepicker.js' %}"></script>
 {% endblock %}
 
 {% block content %}
 <h1>Editor de campaña</h1>
-<form role="form" method="post" action="/campaign/save" {% if form.is_multipart %}enctype="multipart/form-data"{% endif %}>
+<form role="form" method="post" action="/campaign/save" {% if form.is_multipart %}enctype="multipart/form-data"{% endif %} >
 <div class="panel panel-primary">
     <div class="panel-heading">
         Datos
@@ -40,11 +40,18 @@
         </div>
         <div class="form-group">
             <label for="name_id">Listas negras a aplicar</label>
-            {{ form.blacklists }}
+            <div class="input-group">
+                {{ form.blacklists }}
+                <a class="input-group-addon glyphicon glyphicon-pencil" title="Administrar listas negras" onclick="window.open('/blacklist')"></a>
+            </div>
+
         </div>
         <div class="form-group">
             <label for="name_id">Listas blancas a aplicar</label>
-            {{ form.whitelists }}
+            <div class="input-group">
+                {{ form.whitelists }}
+                <a class="input-group-addon glyphicon glyphicon-pencil" title="Administrar listas blancas" onclick="window.open('/whitelist')"></a>
+            </div>
         </div>
     </div>
 </div>
@@ -54,24 +61,24 @@
     </div>
     <div class="panel-body">
         <div class="form-group">
-            <label for="name_id">Nombre de campaña</label>
+            <label for="id_name">Nombre de campaña</label>
             {{ form.name }}
         </div>
         <div class="form-group">
-            <label for="name_id">Volumen de envios</label>
-            {{ form.estimated_volume }}
-        </div>
-        <div class="form-group">
-            <label for="name_id">Propietario</label>
+            <label for="id_owner">Propietario</label>
             {{ form.owner }}
         </div>
         <div class="form-group">
-            <label for="name_id">Categoría del producto</label>
+            <label for="id_category">Categoría del producto</label>
             {{ form.category }}
         </div>
         <div class="form-group">
-            <label for="name_id">Nombre del producto</label>
+            <label for="id_product">Nombre del producto</label>
             {{ form.product }}
+        </div>
+        <div class="form-group">
+            <label for="id_message">Mensaje a enviar</label>
+            {{ form.message }}
         </div>
     </div>
 </div>
@@ -85,8 +92,8 @@
             {{ form.destination }}
         </div>
         <div class="form-group">
-            <label for="name_id">Fecha y hora de inicio</label>
-            <div class="input-group datetimepicker">
+            <label for="name_id">Fecha de inicio</label>
+            <div class="input-group date datetimepicker" data-date-format="YYYY-MM-DD">
                 {{ form.start_date }}
                 <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
@@ -94,8 +101,8 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="name_id">Fecha y hora de finalización</label>
-            <div class="input-group datetimepicker">
+            <label for="name_id">Fecha de finalización</label>
+            <div class="input-group date datetimepicker" data-date-format="YYYY-MM-DD">
                 {{ form.end_date }}
                 <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
@@ -103,7 +110,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="name_id">Prioridad</label>
+            <label for="id_priority">Prioridad</label>
             {{ form.priority }}
         </div>
     </div>
@@ -111,6 +118,7 @@
     <!-- hidden fields -->
     {{ form.campaign_id }}
     <input type="submit" class="btn btn-success" value="Guardar" />
+    <a class="btn btn-danger" href="/campaign/list">Descartar</a>
 </form>
 {% endblock %}
 
@@ -119,7 +127,9 @@
 
     $(function() {
                 $(".chosen-select").chosen();
-                $(".datetimepicker").datetimepicker();
+                $(".datetimepicker").datetimepicker({
+                    pickTime: false
+                });
             }
     );
     </script>
@@ -145,7 +155,7 @@
       function uploadFile() {
         var fd = new FormData();
         fd.enctype="multipart/form-data";
-        fd.append("_id", document.getElementById('id_campaign_id'));
+        fd.append("campaign_id", document.getElementById('id_campaign_id').value);
         fd.append("fileToUpload", document.getElementById('fileToUpload').files[0]);
         var xhr = new XMLHttpRequest();
         xhr.upload.addEventListener("progress", uploadProgress, false);
@@ -167,16 +177,22 @@
       }
 
       function uploadComplete(evt) {
-        alert(evt.target.responseText);
-          document.getELementById('id_campaign_id').innerHTML = evt.target.responseText;
+        id = evt.target.responseText;
+
+        if (id.length != 24)
+            alert("Error al procesar el archivo. Intente de nuevo.");
+        else{
+            document.getElementById('id_campaign_id').value = id;
+            alert("Subida del archivo completada!");
+        }
       }
 
       function uploadFailed(evt) {
-          alert("Error");
+          alert("Error al subir el archivo, Intente de nuevo.");
       }
 
       function uploadCanceled(evt) {
-        alert("The upload has been canceled by the user or the browser dropped the connection.");
+        alert("La subida del archivo fue cancelada por el usuario o la conección se perdió. Intente de nuevo.");
       }
     </script>
 

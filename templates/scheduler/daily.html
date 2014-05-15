@@ -1,57 +1,141 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block navigation %}
+    <nav class="navbar navbar-default" role="navigation">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1"></button>
+        <div class="navbar-brand"><img src="{% static 'images/logo.png' %}" heigth="40" width="40" /> Broadcaster</div>
+        <ul class="nav navbar-nav">
+            <li><a href="/campaign/list">Lista de campañas</a></li>
+            <li class="active"><a href="/scheduler/daily">Calendarizador</a></li>
+            <li><a href="/reports/progress" >Reporte de progreso</a></li>
+      </ul>
+    </nav>
+{% endblock %}
+
 {% block include_styles %}
     <link rel="stylesheet" href="{% static 'plugins/vertical-tabs/bootstrap.vertical-tabs.css' %}" />
     <link rel="stylesheet" href="{% static 'plugins/chosen/chosen.css' %}" />
     <link rel="stylesheet" href="{% static 'plugins/stream_table/stream_table.css' %}" />
     <link rel="stylesheet" href="{% static 'plugins/datetimepicker/css/bootstrap-datetimepicker.min.css' %}" />
     <style>
-        tr{
-            border:solid;
-            border-width: 1px;
-        }
         td:focus{
             border: solid;
             border-width: 2px;
         }
+
+        input[type=text]{
+            width:60px;
+            padding:0px;
+            margin:0px;
+        }
+
+        input[type=text]:focus{
+            background-color:yellow;
+        }
+
+        p#error{
+            background-color:lightpink;
+            border-color:red;
+            border-style:solid;
+            border-width:1px;
+        }
+
     </style>
 {% endblock %}
-
 
 {% block include_scripts %}
     <script type="application/javascript" src="{% static 'plugins/chosen/chosen.jquery.js' %}"></script>
     <script type="application/javascript" src="{% static 'plugins/stream_table/stream_table.js' %}"></script>
     <script type="application/javascript" src="{% static 'plugins/mustache/mustache.js' %}"></script>
     <script type="application/javascript" src="{% static 'plugins/datetimepicker/js/moment-2.5.1.js' %}"></script>
-    <script type="application/javascript" src="{% static 'plugins/datetimepicker/js/bootstrap-datetimepicker.min.js' %}"></script>
+    <script type="application/javascript" src="{% static 'plugins/datetimepicker/js/bootstrap-datetimepicker.js' %}"></script>
 {% endblock %}
 
 {% block content %}
-
-    <table class="table table-striped table-hover">
-        <tr>
-            <th>Nombre</th>
-            <th>8:00</th>
-            <th>9:00</th>
-            <th>10:00</th>
-            <th>11:00</th>
-            <th>12:00</th>
-            <th>13:00</th>
-            <th>14:00</th>
-            <th>15:00</th>
-            <th>16:00</th>
-            <th>17:00</th>
-            <th>18:00</th>
-            <th>19:00</th>
-        </tr>
-        {% for c in campaigns %}
+    <h1 id="heading">
+        <a class="btn btn-primary glyphicon glyphicon-chevron-left" href="/scheduler/daily/{{ prev_day }}"></a>
+        <span>Distribución de ancho de banda para {{ day }}</span>
+        <a class="btn btn-primary glyphicon glyphicon-chevron-right" href="/scheduler/daily/{{ next_day }}"></a>
+    </h1>
+    <a href="/scheduler/daily">Ir a calendarización de hoy</a>
+    <hr />
+    <form method="post" action="/scheduler/save/{{ day }}">
+        <table class="table table-striped table-hover">
             <tr>
-                <th>{{ c.name }}</th>
-                {% for tps_hour in c.tps_hour %}
-                    <td contenteditable="true">{{ tps_hour }}</td>
-                {% endfor %}
+                <th>Nombre</th>
+                <th>08:00</th>
+                <th>09:00</th>
+                <th>10:00</th>
+                <th>11:00</th>
+                <th>12:00</th>
+                <th>13:00</th>
+                <th>14:00</th>
+                <th>15:00</th>
+                <th>16:00</th>
+                <th>17:00</th>
+                <th>18:00</th>
+                <th>19:00</th>
             </tr>
-        {% endfor %}
-    </table>
+            {% for camp in schedule %}
+                <tr id="row{{ camp.campaign_id }}">
+                    <td>{{ camp.campaign }} <input type="hidden" id="idv_c{{ camp.campaign_id }}" value="{{ camp.volume }}"></td>
+                    {% for hr in camp.hours %}
+                        {% if hr > hour %}
+                            <td><input type="text" class="gridTextbox" name="idh_c{{ camp.campaign_id }}_h{{ hr.hour|stringformat:"02d" }}" value="{{ hr.tps|stringformat:"02d" }}"></td>
+                        {% else %}
+                            <td><input type="text" class="gridTextbox" name="idh_c{{ camp.campaign_id }}_h{{ hr.hour|stringformat:"02d" }}" readonly="true" value="{{ hr.tps|stringformat:"02d" }}"></td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+        <input type="submit" value="Aprobar" class="btn btn-success" onclick="alert('calendarizacion aprboada')">
+        <a class="btn btn-primary" href="/campaign/list">Ir a lista de campañas</a>
+    </form>
+    <p id="error"></p>
+{% endblock %}
+
+{% block body_end %}
+    <script language="javascript">
+
+        var errorPSelector = "p#error";
+        $(errorPSelector).attr("hidden", true);
+
+         $(document).ready(function(){
+             $("input.gridTextbox").blur(function(){
+                 // If left emtpy, put 0.
+                 if ($(this).val().length == 0)
+                    $(this).val(0);
+
+                 // Clear error paragraph.
+                 $(errorPSelector).html("");
+
+                // Get the campaign id.
+                cId = $(this).attr("name").substr(5, 24);
+
+                // Get the volume of the campaign.
+                volSelector = "#idv_c" + cId;
+                vol = 1 * $(volSelector).val();
+
+                // Get the campaign row.
+                total = 0
+                rowSelector = "#row" + cId;
+                $(rowSelector).find("td input[type='text']").each(function (){
+                    total += 1 * $(this).val();
+                })
+                total *= 3600;
+
+                // If not enough TPS to cover the demand, show error message.
+                diffTPS = (vol - total) / 3600;
+                if (diffTPS > 0)
+                    $(errorPSelector).append("Advertencia: No hay suficientes TPS asignados a la campaña " + $(rowSelector + ">:first-child").text().trim() + ". Necesita agregar " + Math.ceil(diffTPS) + " TPS.");
+                else if (diffTPS < -1)
+                    $(errorPSelector).append("Advertencia: Hay demasiados TPS asignados a la campaña " + $(rowSelector + ">:first-child").text().trim() + ". Puede reubicar " + Math.ceil(Math.abs(diffTPS+1)) + " TPS.");
+
+                $(errorPSelector).attr("hidden", $(errorPSelector).text().length ==  0);
+
+             });
+         });
+    </script>
 {% endblock %}

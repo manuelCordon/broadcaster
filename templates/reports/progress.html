@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block include_scripts %}
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+{% endblock %}
+
+{% block navigation %}
+    <nav class="navbar navbar-default" role="navigation">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1"></button>
+        <div class="navbar-brand"><img src="{% static 'images/logo.png' %}" heigth="40" width="40" /> Broadcaster</div>
+        <ul class="nav navbar-nav">
+            <li><a href="/campaign/list">Lista de campañas</a></li>
+            <li><a href="/scheduler/daily">Calendarizador</a></li>
+            <li class="active"><a href="/reports/progress" >Reporte de progreso</a></li>
+      </ul>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <h1 id="heading">
+        <a class="btn btn-primary glyphicon glyphicon-chevron-left" href="/reports/progress/{{ prev_day }}"></a>
+        <span>Progreso de envíos para {{ day }}</span>
+        <a class="btn btn-primary glyphicon glyphicon-chevron-right" href="/reports/progress/{{ next_day }}"></a>
+    </h1>
+    <hr />
+    <table class="table table-striped table-hover">
+        <tr>
+            <th>Campaña</th>
+            <th>Estdo</th>
+            <th>En cola</th>
+            <th>Pendientes de respuesta</th>
+            <th>Envios exitosos</th>
+            <th>Throttling</th>
+        </tr>
+        {% for c in campaigns %}
+        <tr>
+            <th>{{ c.name }}</th>
+            <td>{{ c.status }}</td>
+            <td>{{ c.queue_count }}</td>
+            <td>{{ c.noresponse_count }}</td>
+            <td>{{ c.success_count }}</td>
+            <td>{{ c.throttling_count }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div id="graphContainer" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    <p>Datos del {{ day }} hasta las {{ hour }}</p>
+{% endblock %}
+
+{% block body_end %}
+    <script>
+    $(function () {
+        $('#graphContainer').highcharts({
+            chart: {
+                zoomType: 'x'
+            },
+            title: {
+                text: 'TPS consumidos en el día'
+            },
+            subtitle: {
+                text: document.ontouchstart === undefined ?
+                'De click y arrastre para hacer un acercamiento' :
+                ''
+            },
+            xAxis: {
+                type: 'datetime',
+                minRange: 24 * 3600 // 1 day
+            },
+            yAxis: {
+                title: {
+                    text: 'TPS'
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            plotOptions: {
+                area: {
+                    fillColor: {
+                        linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1},
+                        stops: [
+                            [0, Highcharts.getOptions().colors[0]],
+                            [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                        ]
+                    },
+                    marker: {
+                        radius: 2
+                    },
+                    lineWidth: 1,
+                    states: {
+                        hover: {
+                            lineWidth: 1
+                        }
+                    },
+                    threshold: null
+                }
+            },
+
+            series: [{
+                type: 'area',
+                name: 'TPS',
+                pointInterval: 3600,
+                pointStart: Date.UTC({{ year_num }}, {{ month_num }}, {{ day_num }}, 0, 0, 0),
+                data: {% autoescape off %} {{ data }} {% endautoescape %}
+            }]
+        });
+    });
+
+    document.title = "Broadcaster - progreso"
+
+    </script>
+{% endblock %}

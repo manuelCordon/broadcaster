@@ -1,45 +1,62 @@
 from bson import Code
 from pymongo import Connection
 from pymongo.database import Database
+from im.core.config import conf
 
 __author__ = 'manuel'
 
-
 class ConfigDB:
     def __init__(self):
-        self.__connection = Connection(host="localhost")
-        self.__db = Database(connection=self.__connection, name="broadcaster_dev")
+        db_server_ip = conf("config.db_server_ip")
+        db_server_port = conf("config.db_server_port")
+        db_name = conf("config.db_name")
 
+        print db_server_ip
+        print db_server_port
+        print db_name
+
+        self.__connection = Connection(host=db_server_ip, port=db_server_port)
+        self.__db = Database(connection=self.__connection, name=db_name)
+
+
+    # Return collection with the specified name and filter.
     def get_collection(self, collection, where={}):
         return self.__db[collection].find(spec=where)
 
+
+    # Removes the specified document.
+    def dispose_document(self, collection, where):
+        return self.__db[collection].remove(spec_or_id=where)
+
+
+    # Returns the first document that matches the where clause within the specified collection.
     def get_document(self, collection, where={}):
         return self.__db[collection].find_one(spec_or_id=where)
 
+
+    # Returns a tuple with paired values to be used in drop down lists.
     def get_tuple(self, collection, text, value="_id", where={}):
         l = []
         for i in list(self.__db[collection].find(spec=where)):
             l += [(i[value], i[text])]
         return tuple(l)
 
-    def set_campaign(self, _id, values):
-        q = {}
-        if _id is not None:
-            q = {"_id", _id}
-        return self.__db["campaigns"].find_and_modify(
-            query=q,
-            update=values,
-            upsert=True,
-            new=True
-        )
 
+    # Updates the document with the specified id, the document is inserted if the _id is not found.
+    # Returns the updated document.
     def set_document(self, collection, _id, values):
-        return self.__db[collection].find_and_modify(
-            query={"_id": _id},
-            update=values,
-            upsert=True,
-            new=True
-        )
+        if _id is None:
+            # If no _id to update, insert it.
+            _id = self.__db[collection].insert(values)
+        else:
+            # If _id to update, update it.
+            self.__db[collection].update(
+                spec={"_id": _id},
+                document={"$set": values},
+                upsert=True,
+                new=True)
+        # Return modified document.
+        return self.__db[collection].find_one({"_id": _id})
 
     def get_categories(self):
         return self.get_tuple(
@@ -68,7 +85,7 @@ class ConfigDB:
 
     def get_destinations(self):
         return self.get_tuple(
-            collection="destenations",
+            collection="destinations",
             text="dial"
         )
 
@@ -89,33 +106,47 @@ class ConfigDB:
     def exists_collection(self, name):
         return name in self.__db.collection_names()
 
-    def get_active_campaigns(self, day):
-        pass
+    def get_campaign_schedule_stats(self, day):
+        return self.__db["campaigns"].aggregate()
+
 
 class DataDB:
 
     def __init__(self, name):
+        db_server_ip = conf("config.db_server_ip")
+        db_server_port = conf("config.db_server_port")
         self.__db_name = "camp" + name
-        self.__connection = Connection(host="localhost")
+        self.__connection = Connection(host=db_server_ip, port=db_server_port)
         self.__db = Database(connection=self.__connection, name=self.__db_name)
 
-    def drop_collection(self, collection):
+
+    # Removes the specified collection from the database.
+    def dispose_collection(self, collection):
         self.__db[collection].drop()
 
+
+    # Insert a bulk of documents into a collection.
     def bulk_import(self, collection, doc_or_docs):
         self.__db[collection].insert(doc_or_docs)
 
-    def move_unique(self, source, destenation, order="as it is"):
-        map = Code("function () {"
-                   "    if (db.blacklist.find({'number':this._id}).count() == 0) {"
-                   "        emit(this._id, 1);"
-                   "    }"
-                   "}")
 
-        reduce = Code("function (key, values) {"
-                      "  return key;"
-                      "}")
+    # Moves unique records from source collection to destination, order parameter still pending.
+    def move_unique(self, source, destination, order="as it is"):
+        map_func = Code(
+            "function () {"
+            #"    if (db.blacklist.find({'_id':this._id}).count() == 0) {"
+            "        emit(this._id, 1);"
+            #"    }"
+            "}")
+        reduce_func = Code(
+            "function (key, values) {"
+            "  return key;"
+            "}")
+        self.__db[destination].drop()
+        self.__db[source].map_reduce(map=map_func, reduce=reduce_func, out=destination)
 
-        self.__db[destenation].drop()
-        self.__db[source].map_reduce(map=map, reduce=reduce, out=destenation)
 
+    # Return the count of documents for a specific collection.
+    def count_documents(self, collection, where={}):
+        cur = self.__db[collection].find(where)
+        return cur.count()
