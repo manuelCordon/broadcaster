@@ -1,7 +1,9 @@
 from bson import Code
+import bson
 from pymongo import Connection
 from pymongo.database import Database
 from im.core.config import conf
+import logging
 
 __author__ = 'manuel'
 
@@ -134,9 +136,9 @@ class DataDB:
     def __init__(self, name):
         db_server_ip = conf("config.db_server_ip")
         db_server_port = conf("config.db_server_port")
-        self.__db_name = "camp" + name
+        self.__db_name = "camp{0}".format(name)
         self.__connection = Connection(host=db_server_ip, port=db_server_port)
-        self.__db = Database(connection= self.__connection, name=self.__db_name)
+        self.__db = Database(connection=self.__connection, name=self.__db_name)
 
         # Return collection with the specified name and filter.
     def get_collection(self, collection, where={}):
@@ -185,16 +187,16 @@ class DataDB:
         return name in self.__db.collection_names()
 
     # Moves unique records from source collection to destination, order parameter still pending.
-    def perform_cleanup(self, source, destination, order="as it is"):
-        map_func = Code(
-            "function () {"
-            #"    if (db.blacklist.find({'_id':this._id}).count() == 0) {"
-            "        emit(this._id, 1);"
-            #"    }"
+    def perform_cleanup(self, source, destination):
+
+        func = (
+            "function(doc){" +
+            ("if (db.whitelist.find(doc._id).count() == 1)" if self.exists_collection("whitelists") else "") +
+            ("if (db.blacklist.find(doc._id).count() == 0)" if self.exists_collection("blacklists") else "") +
+            "   db.data.insert(doc._id)" +
             "}")
-        reduce_func = Code(
-            "function (key, values) {"
-            "  return key;"
-            "}")
+
+        logging.debug("Function foreach: " + func)
         self.__db[destination].drop()
-        self.__db[source].map_reduce(map=map_func, reduce=reduce_func, out=destination)
+        self.__db[source].find().forEach(bson.Code(func))
+        logging.debug("forEach execution completed")

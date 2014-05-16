@@ -1,15 +1,15 @@
-import locale
-from bson import ObjectId
 import datetime
+import logging
+
+from bson import ObjectId
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from im.core.config import conf
-import time
-import io
-from Forms import *
-import logging
 from django import template
+
+from Forms import *
+
 
 register = template.Library()
 watch_folder = conf("config.watch_folder")
@@ -64,24 +64,18 @@ def discard(request):
     return HttpResponseRedirect("/campaign/list")
 
 
+# Save the campaign in the db.
 @csrf_exempt
 def save(request):
+    # If not POST do nothing.
     if request.method == "POST":
         cdb = ConfigDB()
         f = request.POST
 
-        print(f)
-
         # Try to retrieve campaign from db, if not possible generate an empty campaign.
-        try:
-            id = ObjectId(str(f["campaign_id"]))
-            c = ConfigDB().get_document("campaigns", {"_id": id})
-        except:
-            id = None
-            c = {}
+        _id = ObjectId(str(f["campaign_id"]))
+        c = ConfigDB().get_document("campaigns", {"_id": _id})
 
-        # Keep the last status, if no status found will be set as missing data file.
-        c["status"] = c.get("status", "missing data file")
 
         # Update the rest of the campaign data.
         c["message"] = f.get("message", "NO MESSAGE")
@@ -92,44 +86,60 @@ def save(request):
         c["ignore_max_sms_policy"] = f.get("ignore_max_sms_policy", None)
 
         # Convert list of black lists from strings to ObjectIDs.
-        c["blacklists"] = []
+        lst = []
         for l in f.getlist("blacklists"):
-            c["blacklists"] += [ObjectId(l)]
+            lst += [ObjectId(l)]
+        list_changed = lst != c["blacklists"]
+        c["blacklists"] = lst
 
         # Convert list of white lists from strings to ObjectIDs.
-        c["whitelists"] = []
+        lst = []
         for l in f.getlist("whitelists"):
-            c["whitelists"] += [ObjectId(l)]
+            lst += [ObjectId(l)]
+        c["whitelists"] = lst
+        list_changed = list_changed and (lst != c["whitelists"])
 
-
+        # Handle destination change.
         destination_id = f.get("destination", None)
         if destination_id is not None:
             c["destination"] = destination_id
 
+        # Save priority and priority factor.
         priority_id = f.get("priority", None)
         if priority_id is not None:
             c["priority"] = ObjectId(priority_id)
             priority = cdb.get_document("priorities", {"_id": c["priority"]})
             c["priority_factor"] = priority["factor"]
 
+        # Extract campaign owner.
         owner_id = f.get("owner", None)
         if owner_id is not None:
             c["owner"] = ObjectId(owner_id)
             owner = cdb.get_document("users", {"profile": "owner", "_id": ObjectId(owner_id)})
 
+        # Extract product category.
         category_id = f.get("category", None)
         if category_id is not None:
              c["category"] = ObjectId(category_id)
              category = cdb.get_document("categories", {"_id": ObjectId(category_id)})
 
+        # Extract product id.
         product_id = f.get("product", None)
         if product_id is not None:
             c["product"] = ObjectId(product_id)
             product = cdb.get_document("products", {"_id": ObjectId(product_id)})
 
+        # Keep the last status, if no status found will be set as missing data file.
+        status = c.get("status", "missing data file")
+        if list_changed and status not in ["missing data file", "ready for watcher", "ready for bw list import"]:
+            c["status"] = "ready for bw list import"
+        else:
+            c["status"] = status
+
+        # Update the campaign document.
         ConfigDB().set_document(
             collection="campaigns",
-            _id=id,
+            _id=_id,
             values=c
         )
 
