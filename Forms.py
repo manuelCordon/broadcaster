@@ -1,4 +1,4 @@
-from DataAccess import ConfigDB
+from dataAccess import ConfigDB
 from django import forms
 
 __author__ = 'manuel'
@@ -107,3 +107,32 @@ class CampaignForm(forms.Form):
 
     def __init__(self, *args, **kwargs):
         super(CampaignForm, self).__init__(*args, **kwargs)
+
+class ListForm(forms.Form):
+
+    name = forms.CharField(
+        required=True,
+        max_length=250,
+        widget=forms.TextInput({
+            "class": "form-control",
+            "placeholder": "Nombre"
+        })
+    )
+
+    comment = forms.CharField(
+        required=True,
+        max_length=500,
+        widget=forms.TextInput({
+            "class": "form-control",
+            "placeholder": "Comentario"
+        })
+    )
+
+    #Hidden fields
+    list_id = forms.CharField(
+        widget=forms.HiddenInput(),
+        required=False
+    )
+
+    def __init__(self, *args, **kwargs):
+        super(ListForm, self).__init__(*args, **kwargs)

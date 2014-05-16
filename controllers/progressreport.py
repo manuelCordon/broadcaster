@@ -9,7 +9,7 @@ import logging
 
 import json
 
-from DataAccess import ConfigDB, DataDB
+from dataAccess import ConfigDB, DataDB
 
 __author__ = 'manuel'
 

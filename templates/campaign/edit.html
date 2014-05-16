@@ -42,7 +42,7 @@
             <label for="name_id">Listas negras a aplicar</label>
             <div class="input-group">
                 {{ form.blacklists }}
-                <a class="input-group-addon glyphicon glyphicon-pencil" title="Administrar listas negras" onclick="window.open('/blacklist')"></a>
+                <a class="input-group-addon glyphicon glyphicon-pencil" title="Administrar listas negras" onclick="window.open('/lists/black')"></a>
             </div>
 
         </div>
@@ -50,7 +50,7 @@
             <label for="name_id">Listas blancas a aplicar</label>
             <div class="input-group">
                 {{ form.whitelists }}
-                <a class="input-group-addon glyphicon glyphicon-pencil" title="Administrar listas blancas" onclick="window.open('/whitelist')"></a>
+                <a class="input-group-addon glyphicon glyphicon-pencil" title="Administrar listas blancas" onclick="window.open('/lists/white')"></a>
             </div>
         </div>
     </div>
@@ -118,7 +118,7 @@
     <!-- hidden fields -->
     {{ form.campaign_id }}
     <input type="submit" class="btn btn-success" value="Guardar" />
-    <a class="btn btn-danger" href="/campaign/list">Descartar</a>
+    <a class="btn btn-danger" href="/campaign/discard">Descartar</a>
 </form>
 {% endblock %}
 
@@ -177,14 +177,12 @@
       }
 
       function uploadComplete(evt) {
-        id = evt.target.responseText;
+        result = evt.target.responseText;
 
-        if (id.length != 24)
-            alert("Error al procesar el archivo. Intente de nuevo.");
-        else{
-            document.getElementById('id_campaign_id').value = id;
+        if (result == "OK")
             alert("Subida del archivo completada!");
-        }
+        else
+            alert("Error al subir el archivo, Intente de nuevo.");
       }
 
       function uploadFailed(evt) {

@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    {% if type == "black" %}
+        <h1>Lista negra</h1>
+    {% elif type == "white" %}
+        <h1>Lista blanca</h1>
+    {% endif %}
+    <hr />
+    <form role="form" method="post" action="/lists/{{ type }}/save" {% if form.is_multipart %}enctype="multipart/form-data"{% endif %} >
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                Datos
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <div class="row">
+                        <label for="fileToUpload">Archivo</label><br />
+                        <input type="file" class="btn btn-default" name="fileToUpload" id="fileToUpload" onchange="fileSelected();"/>
+                    </div>
+                    <div id="fileName"></div>
+                    <div id="fileSize"></div>
+                    <div id="fileType"></div>
+                    <div id="display"></div>
+                    <div class="row"></div>
+                    <div id="progressNumber"></div>
+                </div>
+                <div class="form-group">
+                    <label for="id_name">Nombre de la lista</label>
+                    {{ form.name }}
+                </div>
+                <div class="form-group">
+                    <label for="id_comment">Comentario o descripción</label>
+                    {{ form.comment }}
+                </div>
+            </div>
+        </div>
+    <!-- hidden inputs -->
+    {{ form.list_id }}
+    <input type="submit" class="btn btn-success" value="Guardar" />
+    <a class="btn btn-danger" href="/lists/{{ type }}/discard">Descartar</a>
+    </form>
+{% endblock %}
+
+{% block body_end %}
+
+    <script type="text/javascript">
+      function fileSelected() {
+        var file = document.getElementById('fileToUpload').files[0];
+        if (file) {
+          var fileSize = 0;
+          if (file.size > 1024 * 1024)
+            fileSize = (Math.round(file.size * 100 / (1024 * 1024)) / 100).toString() + 'MB';
+          else
+            fileSize = (Math.round(file.size * 100 / 1024) / 100).toString() + 'KB';
+
+          document.getElementById('fileName').innerHTML = 'Name: ' + file.name;
+          document.getElementById('fileSize').innerHTML = 'Size: ' + fileSize;
+          document.getElementById('fileType').innerHTML = 'Type: ' + file.type;
+
+          uploadFile();
+        }
+      }
+
+      function uploadFile() {
+        var fd = new FormData();
+        fd.enctype="multipart/form-data";
+        fd.append("list_id", document.getElementById('id_list_id').value);
+        fd.append("fileToUpload", document.getElementById('fileToUpload').files[0]);
+        alert(fd);
+        var xhr = new XMLHttpRequest();
+        xhr.upload.addEventListener("progress", uploadProgress, false);
+        xhr.addEventListener("load", uploadComplete, false);
+        xhr.addEventListener("error", uploadFailed, false);
+        xhr.addEventListener("abort", uploadCanceled, false);
+        xhr.open("POST", "/lists/upload");
+        xhr.send(fd);
+      }
+
+      function uploadProgress(evt) {
+        if (evt.lengthComputable) {
+          var percentComplete = Math.round(evt.loaded * 100 / evt.total);
+          document.getElementById('progressNumber').innerHTML = percentComplete.toString() + '%';
+        }
+        else {
+          document.getElementById('progressNumber').innerHTML = 'unable to compute';
+        }
+      }
+
+      function uploadComplete(evt) {
+        result = evt.target.responseText;
+
+        if (result != "OK")
+        {
+            alert("Error al procesar el archivo. Intente de nuevo.");
+            document.innerHTML = result;
+        }
+        else
+            alert("El archivo fue subido y procesado exitosamente.");
+      }
+
+      function uploadFailed(evt) {
+          alert("Error al subir el archivo, Intente de nuevo.");
+      }
+
+      function uploadCanceled(evt) {
+        alert("La subida del archivo fue cancelada por el usuario o la conección se perdió. Intente de nuevo.");
+      }
+    </script>
+
+{% endblock %}

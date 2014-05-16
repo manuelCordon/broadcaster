@@ -4,8 +4,8 @@ import os
 import zipfile
 import csv
 from bson import ObjectId
-from DataAccess import ConfigDB
-from DataAccess import DataDB
+from dataAccess import ConfigDB
+from dataAccess import DataDB
 from im.core.config import configure, conf, configs
 import logging
 import sys

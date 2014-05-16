@@ -1,7 +1,7 @@
 import time
 import datetime
 from bson import ObjectId
-from DataAccess import ConfigDB, DataDB
+from dataAccess import ConfigDB, DataDB
 from im.core.config import configure, conf, configs
 import logging
 import sys
@@ -16,7 +16,7 @@ configure(set_project_path=os.path.dirname(os.path.abspath(__file__)) + '/', ove
 # Run map reduce.
 def clean_up(ddb):
     data = DataDB(ddb)
-    data.move_unique("raw_data", "data")
+    data.perform_cleanup("raw_data", "data")
     return data.count_documents("data")
 
 # Execute the clean up.

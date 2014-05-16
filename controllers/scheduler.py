@@ -6,7 +6,7 @@ from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from im.core.config import conf
 
-from DataAccess import ConfigDB
+from dataAccess import ConfigDB
 
 
 __author__ = 'manuel'

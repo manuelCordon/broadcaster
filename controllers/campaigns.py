@@ -6,30 +6,71 @@ from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 from im.core.config import conf
 import time
+import io
 from Forms import *
 import logging
-
 from django import template
+
 register = template.Library()
 watch_folder = conf("config.watch_folder")
-
-@register.simple_tag
-def dict_key_lookup(the_dict, key):
-    return the_dict.get(key, '')
+__author__ = 'manuel'
 
 
-def index(request):
-    return render(request, "hello.html", dict(test="xxyy"))
+def show(request):
+    # Get the message if any.
+    if request.method == "GET":
+        msg = request.GET.get("msg", None)
+    else:
+        msg = None
+
+    # Get the campaigns from the database.
+    campaigns = tuple(ConfigDB().get_collection("campaigns"))
+
+    # Replace _id to campaign_id to be consumed by the template since no _ starting ids can be used.
+    for c in campaigns:
+        c["campaign_id"] = c.pop("_id")
+
+    return render(request, "campaign/list.html", {"campaigns": campaigns, "message": msg})
 
 
+# Allows add/edit campaigns.
+def edit(request, _id=None):
+    if _id is None:
+        # No _id, generates an empty campaign.
+        c = ConfigDB().set_document("campaigns", None, {})
+    else:
+        # Reads the list from the db.
+        c = ConfigDB().get_document("campaigns", {"_id": ObjectId(_id)})
 
+    # Replaces _id with campaign_id.
+    c["campaign_id"] = c.pop("_id")
+
+    # Preload the form to be submitted.
+    frm = CampaignForm(initial=c)
+
+    return render(request, "campaign/edit.html", {"form": frm})
+
+
+# Removes the campaign from the system.
+def remove(request, _id):
+    ConfigDB().dispose_document("campaigns", {"_id": ObjectId(_id)})
+    return HttpResponseRedirect("/campaign/list?msg=delete_ok")
+
+
+# Removes the campaigns without status empty from the system silently.
+def discard(request):
+    ConfigDB().dispose_document("lists",
+                                {"status": {"$exists": False}})
+    return HttpResponseRedirect("/campaign/list")
 
 
 @csrf_exempt
-def campaign_save(request):
+def save(request):
     if request.method == "POST":
         cdb = ConfigDB()
         f = request.POST
+
+        print(f)
 
         # Try to retrieve campaign from db, if not possible generate an empty campaign.
         try:
@@ -49,8 +90,17 @@ def campaign_save(request):
         c["start_date"] = f.get("start_date", None)
         c["end_date"] = f.get("end_date", None)
         c["ignore_max_sms_policy"] = f.get("ignore_max_sms_policy", None)
-        c["blacklist"] = f.get("blacklists", None)
-        c["whitelist"] = f.get("whitelists", None)
+
+        # Convert list of black lists from strings to ObjectIDs.
+        c["blacklists"] = []
+        for l in f.getlist("blacklists"):
+            c["blacklists"] += [ObjectId(l)]
+
+        # Convert list of white lists from strings to ObjectIDs.
+        c["whitelists"] = []
+        for l in f.getlist("whitelists"):
+            c["whitelists"] += [ObjectId(l)]
+
 
         destination_id = f.get("destination", None)
         if destination_id is not None:
@@ -86,56 +136,20 @@ def campaign_save(request):
         return HttpResponseRedirect("/campaign/list?msg=save_ok")
 
 
-def campaign_remove(request, _id):
-    ConfigDB().dispose_document("campaigns", {"_id": ObjectId(_id)})
-    return HttpResponseRedirect("/campaign/list?msg=delete_ok")
-
-
-def campaign_edit(request, _id):
-    c = ConfigDB().get_collection("campaigns", {"_id": ObjectId(_id)})[0]
-    c["campaign_id"] = c.pop("_id")
-    frm = CampaignForm(initial=c)
-    return render(request, "campaign/edit.html", {"form": frm})
-
-
-def campaign_list(request):
-    # Get the message if any.
-    if request.method == "GET":
-        msg = request.GET.get("msg", None)
-    else:
-        msg = None
-
-    # Get the campaigns from the database.
-    campaigns = tuple(ConfigDB().get_collection("campaigns"))
-
-    # Replace _id to campaign_id to be consumed by the template since no _ starting ids can be used.
-    for c in campaigns:
-        c["campaign_id"] = c.pop("_id")
-    return render(request, "campaign/list.html", {"campaigns": campaigns, "message": msg})
-
-
 @csrf_exempt
-def upload_file(request):
+def upload(request):
     if request.method == 'POST':
 
         # Get campaign id if available.
         logging.info("Received post to upload file for {0}".format(request.POST.get("campaign_id", "")))
-        camp_id = request.POST.get("campaign_id", "")
-        if camp_id != "":
-            camp_id = ObjectId(camp_id)
-        else:
-            camp_id = None
+        camp_id = ObjectId(request.POST.get("campaign_id"))
 
-        # Insert/Update campaign with upload date.
+        # Update campaign with upload date.
         logging.info("Adding upload date.")
         c = ConfigDB().set_document("campaigns",
                                     camp_id,
                                     {"data_date": datetime.datetime.now().isoformat(),
                                      "status": "uploading data file"})
-
-        # Make sure campaign id is assigned.
-        camp_id = str(c.get("_id", None))
-        logging.info("Confirmed campaign id ".format(camp_id))
 
         # Write the file in the server.
         save_file(request.FILES['fileToUpload'], camp_id)
@@ -146,11 +160,11 @@ def upload_file(request):
                                 {"status": "ready for watcher"})
 
         # Return the campaign id to be assigned.
-        return render(request, "blank.html", {"message": camp_id})
+        return render(request, "blank.html", {"message": "OK"})
 
 
-def save_file(f, name):
-    filename = watch_folder + "camp_" + name + ".zip"
+def save_file(f, _id):
+    filename = "{0}camp_{1}.zip".format(watch_folder, _id)
     with open(filename, 'wb+') as destination:
         for chunk in f.chunks():
             destination.write(chunk)
