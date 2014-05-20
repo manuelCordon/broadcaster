@@ -89,14 +89,12 @@ class CampaignForm(forms.Form):
 
     blacklists = forms.MultipleChoiceField(
         label="Listas negras",
-        widget=forms.Select({"class": "chosen-select form-control", "multiple": ""}),
-        choices=ConfigDB().get_blacklists()
+        widget=forms.Select({"class": "chosen-select form-control", "multiple": ""})
     )
 
     whitelists = forms.MultipleChoiceField(
         label="Listas blancas",
-        widget=forms.Select({"class": "chosen-select form-control", "multiple": ""}),
-        choices=ConfigDB().get_whitelists()
+        widget=forms.Select({"class": "chosen-select form-control", "multiple": ""})
     )
 
     #Hidden fields

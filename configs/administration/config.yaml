@@ -11,8 +11,8 @@ max_tps: 100
 db_server_ip: localhost
 db_server_port: 27017
 db_name: broadcaster
-watch_folder: /Users/manuel/dev/git/broadcaster/watch/
-working_folder: /Users/manuel/dev/git/broadcaster/working/
-done_folder: /Users/manuel/dev/git/broadcaster/done/
-reject_folder: /Users/manuel/dev/git/broadcaster/reject/
-import_chunk_size: 1000000
+watch_folder: /var/www/broadcaster/gt/tigo/watch/
+working_folder: /var/www/broadcaster/gt/tigo/working/
+done_folder: /var/www/broadcaster/gt/tigo/done/
+reject_folder: /var/www/broadcaster/gt/tigo/rejects/
+import_chunk_size: 100000

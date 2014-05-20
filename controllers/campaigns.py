@@ -16,6 +16,7 @@ watch_folder = conf("config.watch_folder")
 __author__ = 'manuel'
 
 
+# Show list of campaigns.
 def show(request):
     # Get the message if any.
     if request.method == "GET":
@@ -59,7 +60,7 @@ def remove(request, _id):
 
 # Removes the campaigns without status empty from the system silently.
 def discard(request):
-    ConfigDB().dispose_document("lists",
+    ConfigDB().dispose_document("campaigns",
                                 {"status": {"$exists": False}})
     return HttpResponseRedirect("/campaign/list")
 
@@ -89,7 +90,7 @@ def save(request):
         lst = []
         for l in f.getlist("blacklists"):
             lst += [ObjectId(l)]
-        list_changed = lst != c["blacklists"]
+        list_changed = lst != c.get("blacklists", None)
         c["blacklists"] = lst
 
         # Convert list of white lists from strings to ObjectIDs.
@@ -97,7 +98,7 @@ def save(request):
         for l in f.getlist("whitelists"):
             lst += [ObjectId(l)]
         c["whitelists"] = lst
-        list_changed = list_changed and (lst != c["whitelists"])
+        list_changed = list_changed and (lst != c.get("whitelists", None))
 
         # Handle destination change.
         destination_id = f.get("destination", None)
@@ -167,7 +168,7 @@ def upload(request):
         # Set camapign status ready for watcher.
         ConfigDB().set_document("campaigns",
                                 camp_id,
-                                {"status": "ready for watcher"})
+                                {"status": "file uploaded, review configuration"})
 
         # Return the campaign id to be assigned.
         return render(request, "blank.html", {"message": "OK"})

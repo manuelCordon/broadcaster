@@ -48,9 +48,10 @@ def daily(request, day):
     # Fetch the missing campaigns.
     campaigns = cdb.get_collection(
         collection="campaigns",
-        where={"status": "ready for scheduler",
-               "start_date": day,
-               "id" : {"$nin": scheduled_campaign_ids}})
+        where={"status": {"$in": ["ready for scheduler", "broadcasting"]},
+               "start_date": {"$lte": day},
+               "end_date": {"$gte": day},
+               "_id": {"$nin": scheduled_campaign_ids}})
 
     # If not found in db, create it.
     if campaigns.count() > 0:

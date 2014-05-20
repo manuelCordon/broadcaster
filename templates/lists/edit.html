@@ -46,6 +46,7 @@
 {% block body_end %}
 
     <script type="text/javascript">
+
       function fileSelected() {
         var file = document.getElementById('fileToUpload').files[0];
         if (file) {
@@ -68,7 +69,6 @@
         fd.enctype="multipart/form-data";
         fd.append("list_id", document.getElementById('id_list_id').value);
         fd.append("fileToUpload", document.getElementById('fileToUpload').files[0]);
-        alert(fd);
         var xhr = new XMLHttpRequest();
         xhr.upload.addEventListener("progress", uploadProgress, false);
         xhr.addEventListener("load", uploadComplete, false);
@@ -94,10 +94,10 @@
         if (result != "OK")
         {
             alert("Error al procesar el archivo. Intente de nuevo.");
-            document.innerHTML = result;
         }
-        else
+        else{
             alert("El archivo fue subido y procesado exitosamente.");
+        }
       }
 
       function uploadFailed(evt) {

@@ -22,7 +22,7 @@ class ConfigDB:
     def get_tuple(self, collection, text, value="_id", where={}):
         l = []
         for i in list(self.__db[collection].find(spec=where)):
-            l += [(i[value], i[text])]
+            l += [(str(i[value]), str(i[text]))]
         return tuple(l)
 
 
@@ -113,7 +113,7 @@ class ConfigDB:
     def get_destinations(self):
         return self.get_tuple(
             collection="destinations",
-            text="dial"
+            text="name"
         )
 
     def get_whitelists(self):
@@ -190,13 +190,13 @@ class DataDB:
     def perform_cleanup(self, source, destination):
 
         func = (
-            "function(doc){" +
+            "db.{0}.find().forEach(function(doc){" +
             ("if (db.whitelist.find(doc._id).count() == 1)" if self.exists_collection("whitelists") else "") +
             ("if (db.blacklist.find(doc._id).count() == 0)" if self.exists_collection("blacklists") else "") +
-            "   db.data.insert(doc._id)" +
-            "}")
+            "   db.{1}.insert(doc)" +
+            "})").replace("{0}", source).replace("{1}", destination)
 
         logging.debug("Function foreach: " + func)
         self.__db[destination].drop()
-        self.__db[source].find().forEach(bson.Code(func))
+        self.__db.eval(func)
         logging.debug("forEach execution completed")

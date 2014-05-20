@@ -11,6 +11,7 @@
 
 {% block include_scripts %}
     <script type="application/javascript" src="{% static 'plugins/chosen/chosen.jquery.js' %}"></script>
+    <script type="application/javascript" src="{% static 'plugins/chosen/chosen.ajaxaddition.jquery.js' %}"></script>
     <script type="application/javascript" src="{% static 'plugins/stream_table/stream_table.js' %}"></script>
     <script type="application/javascript" src="{% static 'plugins/mustache/mustache.js' %}"></script>
     <script type="application/javascript" src="{% static 'plugins/datetimepicker/js/moment-2.5.1.js' %}"></script>
@@ -124,14 +125,27 @@
 
 {% block body_end %}
     <script type="application/javascript">
-
+    var x=0;
     $(function() {
-                $(".chosen-select").chosen();
-                $(".datetimepicker").datetimepicker({
-                    pickTime: false
-                });
-            }
-    );
+        // Date pickers.
+        $('.datetimepicker').datetimepicker({
+            pickTime: false
+        });
+
+        // Black list chosen.
+        $('#id_blacklists').ajaxChosen(
+                {dataType: 'json',
+                 type: 'POST',
+                 url:'/lists/black/json'},
+                {loadingImg: '{% static 'images/loading.gif' %}'});
+
+        // White list chosen.
+        $('#id_whitelists').ajaxChosen(
+                {dataType: 'json',
+                 type: 'POST',
+                 url:'/lists/white/json'},
+                {loadingImg: '{% static 'images/loading.gif' %}'});
+    })
     </script>
 
     <script type="text/javascript">

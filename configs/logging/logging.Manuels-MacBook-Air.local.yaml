@@ -1,4 +1,4 @@
-file_path: broadcaster.log
+file_path: ./testing data/broadcaster.log
 level: debug
 default_level: debug
 console_level: debug

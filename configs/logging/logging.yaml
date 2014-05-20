@@ -1,4 +1,4 @@
-file_path: /var/log/broadcaster.log
+file_path: /var/log/im/broadcaster/broadcaster.log
 level: debug
 default_level: debug
 console_level: debug

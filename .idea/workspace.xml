@@ -5,12 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f1ae449-3ef3-48f7-ba4d-20a1e5f187a2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/configs/administration/config.Manuels-MacBook-Air.local.yaml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/configs/logging/logging.Manuels-MacBook-Air.local.yaml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/campaigncleanup.py" afterPath="$PROJECT_DIR$/campaigncleanup.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/images/loading.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/plugins/chosen/chosen.ajaxaddition.jquery.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/done/camp_537586b829a8065c2755597f.zip" afterPath="$PROJECT_DIR$/done/camp_537586b829a8065c2755597f.zip" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Forms.py" afterPath="$PROJECT_DIR$/Forms.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/campaigns.py" afterPath="$PROJECT_DIR$/controllers/campaigns.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/campaignwatcher.py" afterPath="$PROJECT_DIR$/campaignwatcher.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/configs/administration/config.yaml" afterPath="$PROJECT_DIR$/configs/administration/config.yaml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dataAccess.py" afterPath="$PROJECT_DIR$/dataAccess.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/campaign/edit.html" afterPath="$PROJECT_DIR$/templates/campaign/edit.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/lists/edit.html" afterPath="$PROJECT_DIR$/templates/lists/edit.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/listsmanagement.py" afterPath="$PROJECT_DIR$/controllers/listsmanagement.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/configs/logging/logging.Manuels-MacBook-Air.local.yaml" afterPath="$PROJECT_DIR$/configs/logging/logging.Manuels-MacBook-Air.local.yaml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/configs/logging/logging.yaml" afterPath="$PROJECT_DIR$/configs/logging/logging.yaml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/reports/progress.html" afterPath="$PROJECT_DIR$/templates/reports/progress.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes.py" afterPath="$PROJECT_DIR$/routes.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/scheduler.py" afterPath="$PROJECT_DIR$/controllers/scheduler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/configs/web/web.yaml" afterPath="$PROJECT_DIR$/configs/web/web.yaml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="broadcaster.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,47 +48,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="campaignwatcher.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/campaignwatcher.py">
+      <file leaf-file-name="scheduler.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controllers/scheduler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="152" column="53" selection-start="5889" selection-end="5889" vertical-scroll-proportion="0.0" vertical-offset="1827" max-vertical-offset="2520">
-              <folding>
-                <element signature="e#0#14#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="campaigncleanup.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/campaigncleanup.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="0" selection-start="396" selection-end="396" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
+            <state line="129" column="78" selection-start="4892" selection-end="4892" vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="1935">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="campaigns.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/controllers/campaigns.py">
+      <file leaf-file-name="Forms.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="179" column="36" selection-start="6132" selection-end="6132" vertical-scroll-proportion="0.8484849" vertical-offset="2097" max-vertical-offset="2790">
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
+            <state line="61" column="35" selection-start="1494" selection-end="1494" vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="2100">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dataAccess.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dataAccess.py">
+      <file leaf-file-name="progressreport.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/controllers/progressreport.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="201" column="52" selection-start="6876" selection-end="6876" vertical-scroll-proportion="0.0" vertical-offset="1272" max-vertical-offset="3045">
-              <folding>
-                <marker date="1400254788000" expanded="true" signature="190:4074" placeholder="..." />
-                <marker date="1400254788000" expanded="true" signature="3940:4074" placeholder="..." />
-                <marker date="1400254788000" expanded="true" signature="4090:6876" placeholder="..." />
-                <marker date="1400254788000" expanded="true" signature="6344:6876" placeholder="..." />
-              </folding>
+            <state line="58" column="40" selection-start="2190" selection-end="2229" vertical-scroll-proportion="0.70149255" vertical-offset="0" max-vertical-offset="1110">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -95,7 +88,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/configs/web/web.yaml" />
         <option value="$PROJECT_DIR$/configs/mysql/mysql.yaml" />
         <option value="$PROJECT_DIR$/configs/features.yaml" />
         <option value="$PROJECT_DIR$/static/plugins/datetimepicker/js/bootstrap-datetimepicker.min.js" />
@@ -104,33 +96,37 @@
         <option value="$PROJECT_DIR$/configs/administration/config.yaml" />
         <option value="$PROJECT_DIR$/templates/progressreport.html" />
         <option value="$PROJECT_DIR$/templates/reports/progressreport.html" />
-        <option value="$PROJECT_DIR$/controllers/scheduler.py" />
         <option value="$PROJECT_DIR$/controllers/progressreport.py" />
-        <option value="$PROJECT_DIR$/templates/reports/progress.html" />
         <option value="$PROJECT_DIR$/templates/scheduler/daily.html" />
         <option value="$PROJECT_DIR$/templates/campaign/list.html" />
         <option value="$PROJECT_DIR$/DataAccess.py" />
         <option value="$PROJECT_DIR$/ .py" />
-        <option value="$PROJECT_DIR$/Forms.py" />
         <option value="$PROJECT_DIR$/templates/lists/list.html" />
-        <option value="$PROJECT_DIR$/templates/lists/edit.html" />
         <option value="$PROJECT_DIR$/views.py" />
-        <option value="$PROJECT_DIR$/controllers/listsmanagement.py" />
         <option value="$PROJECT_DIR$/controllers/__init__.py" />
-        <option value="$PROJECT_DIR$/routes.py" />
-        <option value="$PROJECT_DIR$/templates/campaign/edit.html" />
         <option value="$PROJECT_DIR$/configs/administration/config.Manuels-MacBook-Air.local.yaml" />
-        <option value="$PROJECT_DIR$/configs/logging/logging.Manuels-MacBook-Air.local.yaml" />
-        <option value="$PROJECT_DIR$/dataAccess.py" />
         <option value="$PROJECT_DIR$/campaigncleanup.py" />
-        <option value="$PROJECT_DIR$/controllers/campaigns.py" />
         <option value="$PROJECT_DIR$/campaignwatcher.py" />
+        <option value="$PROJECT_DIR$/routes.py" />
+        <option value="$PROJECT_DIR$/templates/lists/edit.html" />
+        <option value="$PROJECT_DIR$/static/plugins/chosen/ajax-chosen.js" />
+        <option value="$PROJECT_DIR$/Forms.py" />
+        <option value="$PROJECT_DIR$/templates/campaign/edit.html" />
+        <option value="$PROJECT_DIR$/controllers/listsmanagement.py" />
+        <option value="$PROJECT_DIR$/configs/web/web.yaml" />
+        <option value="$PROJECT_DIR$/controllers/campaigns.py" />
+        <option value="$PROJECT_DIR$/configs/logging/logging.Manuels-MacBook-Air.local.yaml" />
+        <option value="$PROJECT_DIR$/templates/reports/progress.html" />
+        <option value="$PROJECT_DIR$/controllers/scheduler.py" />
+        <option value="$PROJECT_DIR$/dataAccess.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1366" />
-    <option name="height" value="768" />
+    <option name="x" value="1366" />
+    <option name="y" value="-312" />
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -223,6 +219,70 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="broadcaster" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="broadcaster" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="broadcaster" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="broadcaster" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="broadcaster" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="broadcaster" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="reports" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="broadcaster" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="broadcaster" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -238,6 +298,7 @@
     <property name="SearchEverywhereHistory" value="&#10;&quot;&#10;T" />
     <property name="recentsLimit" value="5" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
+    <property name="LayoutCode.rearrangeEntriesJavaScript" value="false" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -247,6 +308,7 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/static/images" />
+      <recent name="$PROJECT_DIR$/static/plugins/chosen" />
       <recent name="$PROJECT_DIR$/static" />
       <recent name="$PROJECT_DIR$/templates/reports" />
     </key>
@@ -374,6 +436,9 @@
       <option name="PARAMETERS" value="" />
       <method />
     </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+      <method />
+    </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -395,9 +460,6 @@
       <option name="PUREUNITTEST" value="true" />
       <option name="PARAMS" value="" />
       <option name="USE_PARAM" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -487,28 +549,28 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1366" height="768" extended-state="0" />
-    <editor active="true" />
+    <frame x="1366" y="-312" width="1920" height="1080" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913843" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32871014" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3281704" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20644216" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32871014" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925585" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -531,19 +593,13 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/routes.py">
+    <entry file="file://$PROJECT_DIR$/controllers/listsmanagement.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="1" selection-start="954" selection-end="954" vertical-scroll-proportion="0.0" vertical-offset="378" max-vertical-offset="486" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="23" selection-start="23" selection-end="23" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="162" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/scheduler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="87" selection-start="589" selection-end="589" vertical-scroll-proportion="0.0" vertical-offset="36" max-vertical-offset="576" />
+        <state line="50" column="82" selection-start="1330" selection-end="1330" vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="2775">
+          <folding>
+            <element signature="e#0#15#0" expanded="false" />
+          </folding>
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/campaign/list.html">
@@ -641,11 +697,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1440" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/configs/web/web.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="22" selection-start="34" selection-end="35" vertical-scroll-proportion="0.037775446" vertical-offset="0" max-vertical-offset="953" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/configs/mysql/mysql.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="22" selection-start="49" selection-end="49" vertical-scroll-proportion="0.03785489" vertical-offset="0" max-vertical-offset="951" />
@@ -668,21 +719,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/blank.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="981">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="981" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="32" column="12" selection-start="1315" selection-end="1337" vertical-scroll-proportion="0.48929664" vertical-offset="0" max-vertical-offset="981">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/reports/progress.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="0" selection-start="2373" selection-end="2373" vertical-scroll-proportion="0.9785933" vertical-offset="0" max-vertical-offset="1785">
           <folding />
         </state>
       </provider>
@@ -694,23 +736,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/scheduler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="51" selection-start="2500" selection-end="2500" vertical-scroll-proportion="0.091836736" vertical-offset="915" max-vertical-offset="1920">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/campaign/list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="19" selection-start="0" selection-end="2353" vertical-scroll-proportion="0.35168195" vertical-offset="0" max-vertical-offset="981">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/progressreport.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="96" selection-start="1553" selection-end="1583" vertical-scroll-proportion="0.41326532" vertical-offset="105" max-vertical-offset="1110">
           <folding />
         </state>
       </provider>
@@ -724,74 +752,67 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1005">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="35" selection-start="2455" selection-end="2455" vertical-scroll-proportion="0.39502487" vertical-offset="968" max-vertical-offset="2130">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/lists/edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="40" selection-start="3706" selection-end="3706" vertical-scroll-proportion="0.72477067" vertical-offset="729" max-vertical-offset="1755">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1005" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="23" selection-start="47" selection-end="47" vertical-scroll-proportion="0.014925373" vertical-offset="0" max-vertical-offset="1005">
+        <state line="1" column="23" selection-start="47" selection-end="47" vertical-scroll-proportion="0.014925373" vertical-offset="0" max-vertical-offset="1005" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="156" column="68" selection-start="3746" selection-end="5306" vertical-scroll-proportion="0.9104478" vertical-offset="1425" max-vertical-offset="2430" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configs/administration/config.Manuels-MacBook-Air.local.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="26" selection-start="515" selection-end="515" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/lists/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="47" selection-start="1601" selection-end="1603" vertical-scroll-proportion="0.5045872" vertical-offset="105" max-vertical-offset="1755">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/plugins/chosen/chosen.jquery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-10.389706" vertical-offset="7065" max-vertical-offset="18255" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/plugins/chosen/chosen.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6825" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/campaign/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="146" column="67" selection-start="5727" selection-end="5727" vertical-scroll-proportion="0.5030488" vertical-offset="1860" max-vertical-offset="3240">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/listsmanagement.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="133" column="46" selection-start="4241" selection-end="4248" vertical-scroll-proportion="0.53731346" vertical-offset="1455" max-vertical-offset="2460">
+        <state line="50" column="82" selection-start="1330" selection-end="1330" vertical-scroll-proportion="0.5522388" vertical-offset="195" max-vertical-offset="2775">
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="156" column="68" selection-start="3746" selection-end="5306" vertical-scroll-proportion="0.9104478" vertical-offset="1425" max-vertical-offset="2430">
-          <folding>
-            <element signature="e#0#13#0" expanded="false" />
+            <element signature="e#0#15#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="90" selection-start="926" selection-end="926" vertical-scroll-proportion="0.19402985" vertical-offset="0" max-vertical-offset="1005">
+        <state line="32" column="44" selection-start="2209" selection-end="2209" vertical-scroll-proportion="0.40298507" vertical-offset="0" max-vertical-offset="1005">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/campaign/edit.html">
+    <entry file="file://$PROJECT_DIR$/configs/web/web.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="181" column="18" selection-start="7002" selection-end="7002" vertical-scroll-proportion="0.6941896" vertical-offset="2034" max-vertical-offset="3030">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/configs/administration/config.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="515" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/configs/administration/config.Manuels-MacBook-Air.local.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="26" selection-start="515" selection-end="515" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
+        <state line="2" column="20" selection-start="33" selection-end="33" vertical-scroll-proportion="0.029850746" vertical-offset="0" max-vertical-offset="1005">
           <folding />
         </state>
       </provider>
@@ -803,47 +824,73 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/configs/logging/logging.Manuels-MacBook-Air.local.yaml">
+    <entry file="file://$PROJECT_DIR$/configs/administration/config.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="11" selection-start="11" selection-end="11" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1005">
+        <state line="18" column="0" selection-start="496" selection-end="496" vertical-scroll-proportion="0.26865673" vertical-offset="0" max-vertical-offset="1005">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataAccess.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="201" column="52" selection-start="6876" selection-end="6876" vertical-scroll-proportion="0.0" vertical-offset="2352" max-vertical-offset="3045">
-          <folding>
-            <marker date="1400254788000" expanded="true" signature="190:4074" placeholder="..." />
-            <marker date="1400254788000" expanded="true" signature="3940:4074" placeholder="..." />
-            <marker date="1400254788000" expanded="true" signature="4090:6876" placeholder="..." />
-            <marker date="1400254788000" expanded="true" signature="6344:6876" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/campaigncleanup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="396" selection-end="396" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
+        <state line="19" column="20" selection-start="477" selection-end="477" vertical-scroll-proportion="0.17910448" vertical-offset="0" max-vertical-offset="1005">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/campaignwatcher.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="152" column="53" selection-start="5889" selection-end="5889" vertical-scroll-proportion="0.0" vertical-offset="1827" max-vertical-offset="2520">
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
+        <state line="152" column="53" selection-start="5889" selection-end="5889" vertical-scroll-proportion="0.76119405" vertical-offset="1365" max-vertical-offset="2370">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/campaigns.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="179" column="36" selection-start="6132" selection-end="6132" vertical-scroll-proportion="0.8484849" vertical-offset="2097" max-vertical-offset="2790">
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
+        <state line="169" column="40" selection-start="5802" selection-end="5802" vertical-scroll-proportion="0.8208955" vertical-offset="1560" max-vertical-offset="2655">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configs/logging/logging.Manuels-MacBook-Air.local.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="26" selection-start="26" selection-end="26" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1005">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/reports/progress.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="103" column="34" selection-start="3577" selection-end="3577" vertical-scroll-proportion="0.7798165" vertical-offset="780" max-vertical-offset="1785">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/scheduler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="129" column="78" selection-start="4892" selection-end="4892" vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="1935">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataAccess.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="115" column="22" selection-start="3743" selection-end="3743" vertical-scroll-proportion="0.37810946" vertical-offset="1270" max-vertical-offset="3045">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="35" selection-start="1494" selection-end="1494" vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="2100">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/progressreport.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="40" selection-start="2190" selection-end="2229" vertical-scroll-proportion="0.70149255" vertical-offset="0" max-vertical-offset="1110">
+          <folding />
         </state>
       </provider>
     </entry>

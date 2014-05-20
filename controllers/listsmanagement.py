@@ -1,4 +1,5 @@
 import datetime
+import json
 import zipfile
 import csv
 import fnmatch
@@ -6,7 +7,7 @@ import logging
 import io
 
 from bson import ObjectId
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 
@@ -14,6 +15,7 @@ from Forms import *
 
 
 __author__ = 'manuel'
+
 
 # Shows the list based on the type specified.
 def show(request, list_type):
@@ -24,7 +26,7 @@ def show(request, list_type):
         msg = None
 
     # Get the lists by type from the database.
-    lists = tuple(ConfigDB().get_collection("lists", {"type": type}))
+    lists = tuple(ConfigDB().get_collection("lists", {"type": list_type}))
 
     # Replace _id to list_id to be consumed by the template since no _ starting ids can be used.
     for l in lists:
@@ -39,6 +41,22 @@ def show(request, list_type):
                    "type": list_type,
                    "message": msg})
 
+
+@csrf_exempt
+def json_items(request, list_type):
+    if request.method == "POST":
+
+        # Get the list of items to be displayed.
+        lists = []
+        for l in ConfigDB().get_collection("lists", {"type": list_type, "name":{"$"}}):
+            lists += [{"id": str(l["_id"]), "text": l["name"]}]
+        #build response.
+        response = {"q": request.POST["data[q]"],
+                    "results": lists}
+
+        # Convert to JSON.
+        response = json.dumps(response)
+        return HttpResponse(response, content_type='application/json')
 
 # Allows to edit/add a list.
 def edit(request, list_type, _id=None):
@@ -69,11 +87,13 @@ def remove(request, list_type, _id):
                                  "_id": ObjectId(_id)})
     return HttpResponseRedirect("/lists/{0}?msg=delete_ok".format(list_type))
 
+
 # Removes the lists without type from the system silently.
 def discard(request, list_type):
     ConfigDB().dispose_document("lists",
                                 {"type": {"$exists": False}})
     return HttpResponseRedirect("/lists/" + list_type)
+
 
 # Save the campaign into the database.
 @csrf_exempt
@@ -99,6 +119,7 @@ def save(request, list_type):
         ConfigDB().set_document("lists", _id, l)
         return HttpResponseRedirect("/lists/{0}?msg=save_ok".format(list_type))
 
+
 # Upload file and process.
 # Receives the ajax request to upload the file.
 @csrf_exempt
@@ -122,6 +143,7 @@ def upload_file(request):
         return render(request, "blank.html", {"message": "OK"})
 
 
+# Unzip the file and import the csv data to the list collection.
 def process_file(file_content, _id):
     print " Processing the file."
     # Unzip the content.

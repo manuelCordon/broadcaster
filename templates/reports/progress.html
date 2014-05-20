@@ -101,7 +101,7 @@
             series: [{
                 type: 'area',
                 name: 'TPS',
-                pointInterval: 3600,
+                pointInterval: 1000,
                 pointStart: Date.UTC({{ year_num }}, {{ month_num }}, {{ day_num }}, 0, 0, 0),
                 data: {% autoescape off %} {{ data }} {% endautoescape %}
             }]
