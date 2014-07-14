@@ -2,14 +2,7 @@
 {% load static %}
 
 {% block navigation %}
-    <nav class="navbar navbar-default" role="navigation">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1"></button>
-        <div class="navbar-brand"><img src="{% static 'images/logo.png' %}" heigth="40" width="40" /> Broadcaster</div>
-        <ul class="nav navbar-nav">
-            <li class="black"><a href="/lists/black">Listas negras</a></li>
-            <li class="white"><a href="/lists/white">Listas blancas</a></li>
-      </ul>
-    </nav>
+    {% include "navigationbar.html" %}
 {% endblock %}
 
 {% block content %}
@@ -37,7 +30,9 @@
             <th>Cantidad de registros</th>
             <td>Comentario</td>
             <th>
+                {% if perms.broadcaster.lists_edit %}
                 <a class="btn btn-success" href="/lists/{{ type }}/new"><span class="glyphicon glyphicon-plus"> New</span></a>
+                {% endif %}
             </th>
         </tr>
         {% for l in lists %}
@@ -48,7 +43,9 @@
                 <td>{{ l.comment }}</td>
                 <td>
                     <a class="btn btn-primary" href="/lists/{{ type }}/edit/{{ l.list_id }}"><span class="glyphicon glyphicon-pencil"></span></a>
+                    {% if perms.broadcaster.lists_delete %}
                     <a class="btn btn-danger" href="/lists/{{ type }}/remove/{{ l.list_id }}"><span class="glyphicon glyphicon-trash"></span></a>
+                    {% endif %}
                 </td>
             </tr>
         {% endfor %}

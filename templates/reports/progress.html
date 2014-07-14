@@ -7,15 +7,7 @@
 {% endblock %}
 
 {% block navigation %}
-    <nav class="navbar navbar-default" role="navigation">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1"></button>
-        <div class="navbar-brand"><img src="{% static 'images/logo.png' %}" heigth="40" width="40" /> Broadcaster</div>
-        <ul class="nav navbar-nav">
-            <li><a href="/campaign/list">Lista de campañas</a></li>
-            <li><a href="/scheduler/daily">Calendarizador</a></li>
-            <li class="active"><a href="/reports/progress" >Reporte de progreso</a></li>
-      </ul>
-    </nav>
+    {% include "navigationbar.html" %}
 {% endblock %}
 
 {% block content %}
@@ -28,11 +20,12 @@
     <table class="table table-striped table-hover">
         <tr>
             <th>Campaña</th>
-            <th>Estdo</th>
+            <th>Estado de campaña</th>
             <th>En cola</th>
-            <th>Pendientes de respuesta</th>
+            <th>En proceso</th>
             <th>Envios exitosos</th>
             <th>Throttling</th>
+            <th>Sin respuesta</th>
         </tr>
         {% for c in campaigns %}
         <tr>
@@ -42,6 +35,14 @@
             <td>{{ c.noresponse_count }}</td>
             <td>{{ c.success_count }}</td>
             <td>{{ c.throttling_count }}</td>
+            <td>{{ c.response_to_count }}</td>
+            <td>
+                {% if c.status == "broadcasting" or c.status == "ready to broadcast" %}
+                    <button type="button" class="glyphicon glyphicon-pause" onclick="confirmPause('{{ c.campaign_id }}', '{{ c.name }}')">Pausa</button>
+                {% elif c.status == "paused" %}
+                    <button type="button" class="glyphicon glyphicon-pause" onclick="resume('{{ c.campaign_id }}')">Pausa</button>
+                {% endif %}
+            </td>
         </tr>
         {% endfor %}
     </table>
@@ -79,14 +80,11 @@
             plotOptions: {
                 area: {
                     fillColor: {
-                        linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1},
+                        line: { x1: 0, y1: 0, x2: 0, y2: 1},
                         stops: [
                             [0, Highcharts.getOptions().colors[0]],
                             [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
                         ]
-                    },
-                    marker: {
-                        radius: 2
                     },
                     lineWidth: 1,
                     states: {
@@ -102,13 +100,38 @@
                 type: 'area',
                 name: 'TPS',
                 pointInterval: 1000,
+                marker: {
+                    radius: 2,
+                    fillColor: 'blue',
+                    lineColor: 'blue'
+                },
                 pointStart: Date.UTC({{ year_num }}, {{ month_num }}, {{ day_num }}, 0, 0, 0),
-                data: {% autoescape off %} {{ data }} {% endautoescape %}
+                data: {% autoescape off %} {{ tps_data }} {% endautoescape %}
+            },{
+                type: 'area',
+                name: 'Throttling',
+                pointInterval: 1000,
+                marker: {
+                    radius: 2,
+                    fillColor: 'magenta',
+                    lineColor: 'magenta'
+                },
+                pointStart: Date.UTC({{ year_num }}, {{ month_num }}, {{ day_num }}, 0, 0, 0),
+                data: {% autoescape off %} {{ throttling_data }} {% endautoescape %}
             }]
         });
     });
 
-    document.title = "Broadcaster - progreso"
+    function confirmPause(camp_id, camp_name){
+        if (confirm("Esta seguro que desea detener la campaña " + camp_name + "?"))
+            window.location.replace("/campaign/pause/" + camp_id);
+    };
+
+    function resume(camp_id){
+        window.location.replace("/campaign/resume/" + camp_id);
+    };
+
+    document.title = "Broadcaster - progreso";
 
     </script>
 {% endblock %}

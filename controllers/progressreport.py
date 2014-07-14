@@ -1,25 +1,33 @@
 import datetime
-
-from bson import ObjectId
-from django.http import HttpResponseRedirect
-from django.shortcuts import render
-from django.views.decorators.csrf import csrf_exempt
-from im.core.config import conf
 import logging
-
 import json
 
-from dataAccess import ConfigDB, DataDB
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
+
+from data.mongo_data_access import ConfigDB, DataDB
 
 __author__ = 'manuel'
 
+
 # If no day, redirect to today's report.
+@login_required
 def no_day(request):
+    # Check for the specific permission.
+    if not request.user.has_perm("broadcaster.reports_view"):
+        return render(request, "access_denied.html")
+
     day = datetime.date.today().isoformat()[0:10]
     return HttpResponseRedirect("/reports/progress/" + day)
 
+
 # Returns the basic template for the ongoing campaigns.
+@login_required
 def day(request, day):
+    # Check for the specific permission.
+    if not request.user.has_perm("broadcaster.reports_view"):
+        return render(request, "access_denied.html")
 
     # Init the config db.
     cdb = ConfigDB()
@@ -30,23 +38,23 @@ def day(request, day):
     next_day = (datetime.datetime.strptime(day, "%Y-%m-%d") + datetime.timedelta(days=1)).isoformat()[0:10]
 
     # Get the list of the campaigns in progress.
-    schedule = ConfigDB().get_collection("schedules", where={"day":day})
+    schedule = ConfigDB().get_collection("schedules", where={"day": day})
     campaigns = []
     for camp_schedule in schedule:
-
         # Init campaign in and out.
         campaign = cdb.get_document("campaigns", {"_id": camp_schedule["campaign_id"]})
         ddb = DataDB(str(camp_schedule["campaign_id"]))
         campaign_out = {}
 
         # Get campaign name and status.
+        campaign_out["campaign_id"] = campaign["_id"]
         campaign_out["name"] = campaign["name"]
         campaign_out["status"] = campaign["status"]
-        volume = campaign["volume"]
         campaign_out["queue_count"] = ddb.count_documents("data", {"status": {"$exists": False}})
         campaign_out["noresponse_count"] = ddb.count_documents("data", {"status": "sent"})
         campaign_out["success_count"] = ddb.count_documents("data", {"status": 0})
         campaign_out["throttling_count"] = ddb.count_documents("data", {"status": 88})
+        campaign_out["response_to_count"] = ddb.count_documents("data", {"status": "response time out"})
 
         # Append campaign.
         campaigns += [campaign_out]
@@ -58,12 +66,19 @@ def day(request, day):
     logCur = cdb.get_collection("tps_history",
                                 {"_id": {"$gt": range_start, "$lt": range_end}})
 
-    data = [0] * 24 * 3600
+    tps_data = [0] * 24 * 3600
+    throttling_data = [0] * 24 * 3600
+
+    logging.info("Building data.")
+
     for log in logCur:
         t = datetime.datetime.strptime(log["_id"], "%Y-%m-%d %H:%M:%S")
         index = t.hour * 3600 + t.minute * 60 + t.second
-        logging.info("update {0} con {1}".format(index, log["tps"]))
-        data[index] = log["tps"]
+        tps_data[index] = log["tps"]
+        try:
+            throttling_data[index] = log["throting"]
+        except KeyError:
+            throttling_data[index] = 0
 
     return render(request,
                   "reports/progress.html",
@@ -75,5 +90,6 @@ def day(request, day):
                    "next_day": next_day,
                    "prev_day": prev_day,
                    "campaigns": campaigns,
-                   "data": json.dumps(data)
-                   })
+                   "tps_data": json.dumps(tps_data),
+                   "throttling_data": json.dumps(throttling_data),
+                  })

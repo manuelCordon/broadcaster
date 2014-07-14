@@ -2,15 +2,7 @@
 {% load static %}
 
 {% block navigation %}
-    <nav class="navbar navbar-default" role="navigation">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1"></button>
-        <div class="navbar-brand"><img src="{% static 'images/logo.png' %}" heigth="40" width="40" /> Broadcaster</div>
-        <ul class="nav navbar-nav">
-            <li><a href="/campaign/list">Lista de campañas</a></li>
-            <li class="active"><a href="/scheduler/daily">Calendarizador</a></li>
-            <li><a href="/reports/progress" >Reporte de progreso</a></li>
-      </ul>
-    </nav>
+    {% include "navigationbar.html" %}
 {% endblock %}
 
 {% block include_styles %}
@@ -103,6 +95,11 @@
         $(errorPSelector).attr("hidden", true);
 
          $(document).ready(function(){
+
+             {% if not perms.broadcaster.schedule_edit %}
+                 $("input").attr("disabled", true);
+             {% endif %}
+
              $("input.gridTextbox").blur(function(){
                  // If left emtpy, put 0.
                  if ($(this).val().length == 0)

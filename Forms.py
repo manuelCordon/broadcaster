@@ -1,5 +1,8 @@
-from dataAccess import ConfigDB
 from django import forms
+
+from data.mongo_data_access import ConfigDB
+from data.mysql_data_access import AuthenticationDB
+
 
 __author__ = 'manuel'
 
@@ -80,21 +83,20 @@ class CampaignForm(forms.Form):
         required=False
     )
 
-    ignore_max_sms_policy = forms.BooleanField(
-        widget=forms.Select(
-            attrs={"class": "chosen-select"},
-            choices=((True, 'Si'), (False, 'No'))
-        )
+    authorization_required = forms.BooleanField(
+        widget=forms.CheckboxInput()
     )
 
     blacklists = forms.MultipleChoiceField(
         label="Listas negras",
-        widget=forms.Select({"class": "chosen-select form-control", "multiple": ""})
+        choices=ConfigDB().get_blacklists(),
+        widget=forms.SelectMultiple({"class": "form-control"})
     )
 
     whitelists = forms.MultipleChoiceField(
         label="Listas blancas",
-        widget=forms.Select({"class": "chosen-select form-control", "multiple": ""})
+        choices=ConfigDB().get_whitelists(),
+        widget=forms.SelectMultiple({"class": "form-control"})
     )
 
     #Hidden fields
@@ -105,6 +107,7 @@ class CampaignForm(forms.Form):
 
     def __init__(self, *args, **kwargs):
         super(CampaignForm, self).__init__(*args, **kwargs)
+
 
 class ListForm(forms.Form):
 
@@ -134,3 +137,69 @@ class ListForm(forms.Form):
 
     def __init__(self, *args, **kwargs):
         super(ListForm, self).__init__(*args, **kwargs)
+
+
+class UserForm(forms.Form):
+
+    username = forms.CharField(
+        required=True,
+        max_length=250,
+        widget=forms.TextInput({
+            "class": "form-control",
+            "placeholder": "Username"
+        })
+    )
+
+    first_name = forms.CharField(
+        required=True,
+        max_length=250,
+        widget=forms.TextInput({
+            "class": "form-control",
+            "placeholder": "Nombre de usuario"
+        })
+    )
+
+    last_name = forms.CharField(
+        required=True,
+        max_length=250,
+        widget=forms.TextInput({
+            "class": "form-control",
+            "placeholder": "Apellido del usuario"
+        })
+    )
+
+    email = forms.CharField(
+        required=True,
+        max_length=250,
+        widget=forms.TextInput({
+            "class": "form-control",
+            "placeholder": "Direccion de correo"
+        })
+    )
+
+    groups = forms.MultipleChoiceField(
+        choices=AuthenticationDB().get_groups(),
+        widget=forms.SelectMultiple({"class": "chosen-select form-control"})
+    )
+
+    generate_password = forms.BooleanField(
+        widget=forms.CheckboxInput()
+    )
+
+    password1 = forms.CharField(
+        required=False,
+        max_length=20,
+        widget=forms.PasswordInput({"class": "form-control"})
+    )
+
+    password2 = forms.CharField(
+        required=False,
+        max_length=20,
+        widget=forms.PasswordInput({"class": "form-control"})
+    )
+
+    # Hidden fields
+    id = forms.CharField(
+        widget=forms.HiddenInput(),
+        required=False
+    )

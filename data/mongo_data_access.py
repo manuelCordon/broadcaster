@@ -1,9 +1,9 @@
-from bson import Code
-import bson
-from pymongo import Connection
-from pymongo.database import Database
-from im.core.config import conf
 import logging
+
+from bson import Code
+from pymongo import MongoClient
+from im.core.config import conf
+
 
 __author__ = 'manuel'
 
@@ -12,10 +12,10 @@ class ConfigDB:
     def __init__(self):
         db_server_ip = conf("config.db_server_ip")
         db_server_port = conf("config.db_server_port")
-        self.__connection = Connection(host=db_server_ip, port=db_server_port)
+        self.__client = MongoClient(host=db_server_ip, port=db_server_port)
 
         db_name = conf("config.db_name")
-        self.__db = Database(connection= self.__connection, name=db_name)
+        self.__db = self.__client[db_name]
 
 
     # Returns a tuple with paired values to be used in drop down lists.
@@ -40,8 +40,11 @@ class ConfigDB:
         self.__db[source].map_reduce(map=map_func, reduce=reduce_func, out=destination)
 
     # Return collection with the specified name and filter.
-    def get_collection(self, collection, where={}):
-        return self.__db[collection].find(spec=where)
+    def get_collection(self, collection, where={}, order_by=None, direction=None):
+        if order_by is None:
+            return self.__db[collection].find(spec=where)
+        else:
+            return self.__db[collection].find(spec=where).sort(order_by, direction)
 
     # Returns the first document that matches the where clause within the specified collection.
     def get_document(self, collection, where={}):
@@ -137,8 +140,8 @@ class DataDB:
         db_server_ip = conf("config.db_server_ip")
         db_server_port = conf("config.db_server_port")
         self.__db_name = "camp{0}".format(name)
-        self.__connection = Connection(host=db_server_ip, port=db_server_port)
-        self.__db = Database(connection=self.__connection, name=self.__db_name)
+        self.__client = MongoClient(db_server_ip, db_server_port)
+        self.__db = self.__client[self.__db_name]
 
         # Return collection with the specified name and filter.
     def get_collection(self, collection, where={}):
@@ -189,14 +192,36 @@ class DataDB:
     # Moves unique records from source collection to destination, order parameter still pending.
     def perform_cleanup(self, source, destination):
 
-        func = (
-            "db.{0}.find().forEach(function(doc){" +
-            ("if (db.whitelist.find(doc._id).count() == 1)" if self.exists_collection("whitelists") else "") +
-            ("if (db.blacklist.find(doc._id).count() == 0)" if self.exists_collection("blacklists") else "") +
-            "   db.{1}.insert(doc)" +
-            "})").replace("{0}", source).replace("{1}", destination)
-
-        logging.debug("Function foreach: " + func)
+        # Clean work area.
         self.__db[destination].drop()
-        self.__db.eval(func)
-        logging.debug("forEach execution completed")
+
+        # Determine if blacklist and whitelist are available.
+        has_blacklist = self.exists_collection("blacklist")
+        has_whitelist = self.exists_collection("whitelist")
+
+        # Get data and report the data to be cleaned.
+        data = self.get_collection(source)
+        logging.info("Clean up {0} records".format(data.count()))
+        logging.info("Has blacklist: {0}; Has whitelist: {1}".format(has_blacklist, has_whitelist))
+
+        # Iterate to clean the data.
+        i = 0
+        j = 0
+        blacklisted_count = 0
+        whitelisted_count = 0
+
+        for dial in data:
+            i += 1
+            if has_blacklist and (self.count_documents("blacklist", {"_id": dial}) > 0):
+                blacklisted_count += 1
+            if has_whitelist and (self.count_documents("whitelist", {"_id": dial}) == 0):
+                whitelisted_count += 1
+            else:
+                self.__db[destination].insert({"_id": dial})
+
+            if i == 10000:
+                logging.debug("Cleaned {0}/{1} records".format(i+j, data.count()))
+                j += i
+                i = 0
+
+        logging.info("Cleanning completed: blacklisted: {0}, whitelisted: {1}".format(blacklisted_count, whitelisted_count))

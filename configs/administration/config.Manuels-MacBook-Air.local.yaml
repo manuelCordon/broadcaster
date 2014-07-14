@@ -8,7 +8,7 @@ apps:
     - 'django.contrib.auth'
 
 max_tps: 100
-db_server_ip: localhost
+db_server_ip: 10.178.20.226
 db_server_port: 27017
 db_name: broadcaster
 watch_folder: /Users/manuel/dev/git/broadcaster/watch/

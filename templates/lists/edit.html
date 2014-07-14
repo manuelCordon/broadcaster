@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block navigation %}
+    {% include "navigationbar.html" %}
+{% endblock %}
+
 {% block content %}
     {% if type == "black" %}
         <h1>Lista negra</h1>
@@ -46,6 +50,12 @@
 {% block body_end %}
 
     <script type="text/javascript">
+
+        {% if not perms.broadcaster.lists_edit %}
+             $(function() {
+                $("input").attr("disabled", true)
+                $("select").attr("disabled", true)
+        {% endif %}
 
       function fileSelected() {
         var file = document.getElementById('fileToUpload').files[0];

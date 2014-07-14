@@ -7,6 +7,7 @@ import logging
 import io
 
 from bson import ObjectId
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
@@ -18,7 +19,12 @@ __author__ = 'manuel'
 
 
 # Shows the list based on the type specified.
+@login_required
 def show(request, list_type):
+    # Check for the specific permission.
+    if not request.user.has_perm("broadcaster.lists_view"):
+        return render(request, "access_denied.html")
+
     # Get the message if any.
     if request.method == "GET":
         msg = request.GET.get("msg", None)
@@ -43,12 +49,12 @@ def show(request, list_type):
 
 
 @csrf_exempt
+@login_required
 def json_items(request, list_type):
     if request.method == "POST":
-
         # Get the list of items to be displayed.
         lists = []
-        for l in ConfigDB().get_collection("lists", {"type": list_type, "name":{"$"}}):
+        for l in ConfigDB().get_collection("lists", {"type": list_type}):
             lists += [{"id": str(l["_id"]), "text": l["name"]}]
         #build response.
         response = {"q": request.POST["data[q]"],
@@ -58,8 +64,14 @@ def json_items(request, list_type):
         response = json.dumps(response)
         return HttpResponse(response, content_type='application/json')
 
+
 # Allows to edit/add a list.
+@login_required
 def edit(request, list_type, _id=None):
+    # Check for the specific permission.
+    if not request.user.has_perm("broadcaster.lists_view"):
+        return render(request, "access_denied.html")
+
     if _id is None:
         # No _id, generates an empty list.
         lst = ConfigDB().set_document("lists", None, {})
@@ -81,7 +93,12 @@ def edit(request, list_type, _id=None):
 
 
 # Removes the list from the system.
+@login_required
 def remove(request, list_type, _id):
+    # Check for the specific permission.
+    if not request.user.has_perm("broadcaster.lists_delete"):
+        return render(request, "access_denied.html")
+
     ConfigDB().dispose_document("lists",
                                 {"type": list_type,
                                  "_id": ObjectId(_id)})
@@ -89,6 +106,7 @@ def remove(request, list_type, _id):
 
 
 # Removes the lists without type from the system silently.
+@login_required
 def discard(request, list_type):
     ConfigDB().dispose_document("lists",
                                 {"type": {"$exists": False}})
@@ -97,7 +115,12 @@ def discard(request, list_type):
 
 # Save the campaign into the database.
 @csrf_exempt
+@login_required
 def save(request, list_type):
+    # Check for the specific permission.
+    if not request.user.has_perm("broadcaster.lists_edit"):
+        return render(request, "access_denied.html")
+
     if request.method == "POST":
         f = request.POST
 
@@ -123,7 +146,12 @@ def save(request, list_type):
 # Upload file and process.
 # Receives the ajax request to upload the file.
 @csrf_exempt
+@login_required
 def upload_file(request):
+    # Check for the specific permission.
+    if not request.user.has_perm("broadcaster.lists_edit"):
+        return render(request, "access_denied.html")
+
     if request.method == 'POST':
 
         # Get campaign id if available.

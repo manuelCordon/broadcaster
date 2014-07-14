@@ -1,11 +1,12 @@
 import time
-import datetime
-from bson import ObjectId
-from dataAccess import ConfigDB, DataDB
-from im.core.config import configure, conf, configs
 import logging
 import sys
 import os
+
+from im.core.config import configure
+
+from data.mongo_data_access import ConfigDB, DataDB
+
 
 __author__ = 'manuel'
 

@@ -3,12 +3,15 @@ import time
 import os
 import zipfile
 import csv
-from bson import ObjectId
-from dataAccess import ConfigDB
-from dataAccess import DataDB
-from im.core.config import configure, conf, configs
 import logging
 import sys
+
+from bson import ObjectId
+from im.core.config import configure, conf
+
+from data.mongo_data_access import ConfigDB
+from data.mongo_data_access import DataDB
+
 
 __author__ = 'manuel'
 
@@ -103,7 +106,9 @@ def process_pending_campaigns():
                 campaign_id = ObjectId(filename[5:29])
                 logging.debug("Campaign file {0} found".format(campaign_id))
                 campaign = cdb.get_document("campaigns", where={"status": "ready for watcher", "_id": campaign_id})
+                logging.debug("-001-")
                 if campaign is None:
+                    logging.debug("..<<>>..")
                     logging.WARNING(filename + " not found in db, moved the file to rejects folder.")
                     os.rename(watch_folder + filename, reject_folder + filename)
                 else:

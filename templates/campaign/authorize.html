@@ -6,12 +6,12 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Campañas disponibles</h1>
+    <h1>Campañas para autorizar</h1>
     <hr />
-    {% if message == "save_ok" %}
+    {% if message == "auth_ok" %}
         <div class="alert alert-success alert-dismissable">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <strong>Guardado!</strong> Los cambios fueron almacenados exitosamente.
+            <strong>Exito!</strong> Campaña autorizada.
         </div>
     {% elif message == "delete_ok" %}
         <div class="alert alert-danger alert-dismissable">
@@ -38,13 +38,12 @@
                 <td>{{ c.end_date }}</td>
                 <td>{{ c.status }}</td>
                 <td>
-                    <a class="btn btn-primary" href="/campaign/edit/{{ c.campaign_id }}"><span class="glyphicon glyphicon-pencil"></span></a>
-                    {% if perms.broadcaster.campaign_delete %}
-                    <a class="btn btn-danger" href="/campaign/remove/{{ c.campaign_id }}"><span class="glyphicon glyphicon-trash"></span></a>
+                    {% if perms.broadcaster.campaign_authorize %}
+                    <a class="btn btn-success" href="/authorization/approve/{{ c.campaign_id }}"><span class="glyphicon glyphicon-ok"></span></a>
+                    <a class="btn btn-danger" href="/authorization/revoke/{{ c.campaign_id }}"><span class="glyphicon glyphicon-remove"></span></a>
                     {% endif %}
                 </td>
             </tr>
         {% endfor %}
     </table>
-    <a class="btn btn-primary" href="/scheduler/daily">Ir a calendarizador</a>
 {% endblock %}

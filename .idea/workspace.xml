@@ -1,28 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/templates/scheduler/daily.html" line="131" />
+    <bookmark url="file://$PROJECT_DIR$/templates/scheduler/daily.html" line="128" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f1ae449-3ef3-48f7-ba4d-20a1e5f187a2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/images/loading.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/plugins/chosen/chosen.ajaxaddition.jquery.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/done/camp_537586b829a8065c2755597f.zip" afterPath="$PROJECT_DIR$/done/camp_537586b829a8065c2755597f.zip" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Forms.py" afterPath="$PROJECT_DIR$/Forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/campaigns.py" afterPath="$PROJECT_DIR$/controllers/campaigns.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/configs/administration/config.yaml" afterPath="$PROJECT_DIR$/configs/administration/config.yaml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dataAccess.py" afterPath="$PROJECT_DIR$/dataAccess.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/campaign/edit.html" afterPath="$PROJECT_DIR$/templates/campaign/edit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/lists/edit.html" afterPath="$PROJECT_DIR$/templates/lists/edit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/listsmanagement.py" afterPath="$PROJECT_DIR$/controllers/listsmanagement.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/configs/logging/logging.Manuels-MacBook-Air.local.yaml" afterPath="$PROJECT_DIR$/configs/logging/logging.Manuels-MacBook-Air.local.yaml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/configs/logging/logging.yaml" afterPath="$PROJECT_DIR$/configs/logging/logging.yaml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/reports/progress.html" afterPath="$PROJECT_DIR$/templates/reports/progress.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes.py" afterPath="$PROJECT_DIR$/routes.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/scheduler.py" afterPath="$PROJECT_DIR$/controllers/scheduler.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/configs/web/web.yaml" afterPath="$PROJECT_DIR$/configs/web/web.yaml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="9f1ae449-3ef3-48f7-ba4d-20a1e5f187a2" name="Default" comment="" />
     <ignored path="broadcaster.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -33,7 +15,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/broadcaster$campaignwatcher.coverage" NAME="campaignwatcher Coverage Results" MODIFIED="1399657704306" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/broadcaster$campaignwatcher.coverage" NAME="campaignwatcher Coverage Results" MODIFIED="1402529246395" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/broadcaster$DataAccess.coverage" NAME="DataAccess Coverage Results" MODIFIED="1399657041670" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -47,35 +29,7 @@
     <favorites_list name="broadcaster" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="scheduler.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controllers/scheduler.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="129" column="78" selection-start="4892" selection-end="4892" vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="1935">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Forms.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Forms.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="35" selection-start="1494" selection-end="1494" vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="2100">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="progressreport.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/controllers/progressreport.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="40" selection-start="2190" selection-end="2229" vertical-scroll-proportion="0.70149255" vertical-offset="0" max-vertical-offset="1110">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -88,7 +42,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/configs/mysql/mysql.yaml" />
         <option value="$PROJECT_DIR$/configs/features.yaml" />
         <option value="$PROJECT_DIR$/static/plugins/datetimepicker/js/bootstrap-datetimepicker.min.js" />
         <option value="$PROJECT_DIR$/configs/logging/logging.yaml" />
@@ -96,37 +49,49 @@
         <option value="$PROJECT_DIR$/configs/administration/config.yaml" />
         <option value="$PROJECT_DIR$/templates/progressreport.html" />
         <option value="$PROJECT_DIR$/templates/reports/progressreport.html" />
-        <option value="$PROJECT_DIR$/controllers/progressreport.py" />
-        <option value="$PROJECT_DIR$/templates/scheduler/daily.html" />
-        <option value="$PROJECT_DIR$/templates/campaign/list.html" />
         <option value="$PROJECT_DIR$/DataAccess.py" />
         <option value="$PROJECT_DIR$/ .py" />
-        <option value="$PROJECT_DIR$/templates/lists/list.html" />
         <option value="$PROJECT_DIR$/views.py" />
-        <option value="$PROJECT_DIR$/controllers/__init__.py" />
-        <option value="$PROJECT_DIR$/configs/administration/config.Manuels-MacBook-Air.local.yaml" />
         <option value="$PROJECT_DIR$/campaigncleanup.py" />
+        <option value="$PROJECT_DIR$/static/plugins/chosen/ajax-chosen.js" />
+        <option value="$PROJECT_DIR$/configs/web/web.yaml" />
+        <option value="$PROJECT_DIR$/configs/logging/logging.Manuels-MacBook-Air.local.yaml" />
+        <option value="$PROJECT_DIR$/dataAccess.py" />
+        <option value="$PROJECT_DIR$/configs/mysql/mysql.yaml" />
+        <option value="$PROJECT_DIR$/data/__init__.py" />
+        <option value="$PROJECT_DIR$/data/mysql_data_access.py" />
+        <option value="$PROJECT_DIR$/templates/registration/logged_out.html" />
+        <option value="$PROJECT_DIR$/templates/user/edit.html" />
+        <option value="$PROJECT_DIR$/templates/hello.html" />
+        <option value="$PROJECT_DIR$/templates/access_denied.html" />
+        <option value="$PROJECT_DIR$/templates/scheduler/daily.html" />
+        <option value="$PROJECT_DIR$/controllers/users.py" />
+        <option value="$PROJECT_DIR$/controllers/listsmanagement.py" />
+        <option value="$PROJECT_DIR$/templates/lists/edit.html" />
+        <option value="$PROJECT_DIR$/templates/lists/list.html" />
+        <option value="$PROJECT_DIR$/templates/user/list.html" />
+        <option value="$PROJECT_DIR$/Forms.py" />
+        <option value="$PROJECT_DIR$/templates/campaign/list.html" />
+        <option value="$PROJECT_DIR$/templates/campaign/edit.html" />
+        <option value="$PROJECT_DIR$/controllers/__init__.py" />
+        <option value="$PROJECT_DIR$/controllers/scheduler.py" />
+        <option value="$PROJECT_DIR$/controllers/authorizations.py" />
+        <option value="$PROJECT_DIR$/templates/campaign/authorize.html" />
+        <option value="$PROJECT_DIR$/templates/navigationbar.html" />
+        <option value="$PROJECT_DIR$/templates/registration/login.html" />
+        <option value="$PROJECT_DIR$/configs/administration/config.Manuels-MacBook-Air.local.yaml" />
         <option value="$PROJECT_DIR$/campaignwatcher.py" />
         <option value="$PROJECT_DIR$/routes.py" />
-        <option value="$PROJECT_DIR$/templates/lists/edit.html" />
-        <option value="$PROJECT_DIR$/static/plugins/chosen/ajax-chosen.js" />
-        <option value="$PROJECT_DIR$/Forms.py" />
-        <option value="$PROJECT_DIR$/templates/campaign/edit.html" />
-        <option value="$PROJECT_DIR$/controllers/listsmanagement.py" />
-        <option value="$PROJECT_DIR$/configs/web/web.yaml" />
         <option value="$PROJECT_DIR$/controllers/campaigns.py" />
-        <option value="$PROJECT_DIR$/configs/logging/logging.Manuels-MacBook-Air.local.yaml" />
+        <option value="$PROJECT_DIR$/data/mongo_data_access.py" />
+        <option value="$PROJECT_DIR$/controllers/progressreport.py" />
         <option value="$PROJECT_DIR$/templates/reports/progress.html" />
-        <option value="$PROJECT_DIR$/controllers/scheduler.py" />
-        <option value="$PROJECT_DIR$/dataAccess.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1366" />
-    <option name="y" value="-312" />
-    <option name="width" value="1920" />
-    <option name="height" value="1080" />
+    <option name="width" value="1366" />
+    <option name="height" value="768" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -201,6 +166,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -209,83 +175,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="broadcaster" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="broadcaster" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="broadcaster" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="broadcaster" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="broadcaster" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="broadcaster" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scheduler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="broadcaster" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="broadcaster" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="reports" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="broadcaster" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="broadcaster" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -295,10 +186,11 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
-    <property name="SearchEverywhereHistory" value="&#10;&quot;&#10;T" />
+    <property name="SearchEverywhereHistory" value="try&#10;&quot;&#10;T" />
     <property name="recentsLimit" value="5" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="LayoutCode.rearrangeEntriesJavaScript" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../im-reports-mundial" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -306,7 +198,11 @@
     </option>
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/user" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/data" />
       <recent name="$PROJECT_DIR$/static/images" />
       <recent name="$PROJECT_DIR$/static/plugins/chosen" />
       <recent name="$PROJECT_DIR$/static" />
@@ -329,7 +225,9 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/campaignwatcher.py" />
       <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
@@ -346,7 +244,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="broadcaster" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dataAccess.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data/mongo_data_access.py" />
       <option name="PARAMETERS" value="" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
@@ -545,33 +443,58 @@
       <created>1400212834295</created>
       <updated>1400212834295</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Publicación.">
+      <created>1400552108998</created>
+      <updated>1400552108998</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1366" y="-312" width="1920" height="1080" extended-state="0" />
+    <frame x="0" y="0" width="1366" height="768" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3281704" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20204978" sideWeight="0.49951598" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3994452" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20625" sideWeight="0.50048405" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32871014" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925585" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3281704" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3281704" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32871014" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925585" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -587,97 +510,21 @@
     </option>
     <MESSAGE value="Version piloto." />
     <MESSAGE value="Refactor de controller de campañas.&#10;Interfaz para administrar black y white lists." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor de controller de campañas.&#10;Interfaz para administrar black y white lists." />
+    <MESSAGE value="Publicación." />
+    <option name="LAST_COMMIT_MESSAGE" value="Publicación." />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/controllers/listsmanagement.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="82" selection-start="1330" selection-end="1330" vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="2775">
-          <folding>
-            <element signature="e#0#15#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/campaign/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="46" selection-start="637" selection-end="637" vertical-scroll-proportion="0.0" vertical-offset="234" max-vertical-offset="810" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/campaignwatcher.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="25" selection-start="1748" selection-end="1748" vertical-scroll-proportion="0.0" vertical-offset="972" max-vertical-offset="1800" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/campaigncleanup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="55" selection-start="681" selection-end="681" vertical-scroll-proportion="0.0" vertical-offset="342" max-vertical-offset="558" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/campaign/edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="169" column="45" selection-start="6374" selection-end="6374" vertical-scroll-proportion="0.0" vertical-offset="1216" max-vertical-offset="3402" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataAccess.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="0" selection-start="827" selection-end="840" vertical-scroll-proportion="0.0" vertical-offset="468" max-vertical-offset="2646" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/scheduler/daily.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="19" selection-start="1369" selection-end="1369" vertical-scroll-proportion="0.0" vertical-offset="490" max-vertical-offset="1476" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="90" selection-start="750" selection-end="750" vertical-scroll-proportion="0.0" vertical-offset="288" max-vertical-offset="396" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/campaign/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="46" selection-start="637" selection-end="637" vertical-scroll-proportion="0.0" vertical-offset="234" max-vertical-offset="810" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/campaignwatcher.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="25" selection-start="1748" selection-end="1748" vertical-scroll-proportion="0.0" vertical-offset="829" max-vertical-offset="1800" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/campaigncleanup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="55" selection-start="681" selection-end="681" vertical-scroll-proportion="0.0" vertical-offset="342" max-vertical-offset="558" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/campaign/edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="169" column="45" selection-start="6374" selection-end="6374" vertical-scroll-proportion="0.0" vertical-offset="1216" max-vertical-offset="3402" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataAccess.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="130" column="13" selection-start="3890" selection-end="3890" vertical-scroll-proportion="0.0" vertical-offset="2340" max-vertical-offset="2610" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/scheduler/daily.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="19" selection-start="1369" selection-end="1369" vertical-scroll-proportion="0.0" vertical-offset="490" max-vertical-offset="1476" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="26" selection-start="680" selection-end="686" vertical-scroll-proportion="0.0" vertical-offset="288" max-vertical-offset="468" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/campaign/list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="64" selection-start="655" selection-end="655" vertical-scroll-proportion="0.0" vertical-offset="234" max-vertical-offset="810" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataAccess.py">
+    <entry file="file://$PROJECT_DIR$/data/mongo_data_access.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="93" column="11" selection-start="2476" selection-end="2476" vertical-scroll-proportion="0.0" vertical-offset="1674" max-vertical-offset="2574" />
       </provider>
@@ -697,19 +544,9 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1440" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/configs/mysql/mysql.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="22" selection-start="49" selection-end="49" vertical-scroll-proportion="0.03785489" vertical-offset="0" max-vertical-offset="951" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/plugins/datetimepicker/js/bootstrap-datetimepicker.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1165" column="4" selection-start="49024" selection-end="49024" vertical-scroll-proportion="0.9754797" vertical-offset="20055" max-vertical-offset="21078" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/configs/features.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="18" selection-start="86" selection-end="86" vertical-scroll-proportion="0.08598726" vertical-offset="0" max-vertical-offset="628" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wsgi.py">
@@ -722,59 +559,14 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="981" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="12" selection-start="1315" selection-end="1337" vertical-scroll-proportion="0.48929664" vertical-offset="0" max-vertical-offset="981">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/scheduler/daily.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="44" selection-end="44" vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="2190">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/campaign/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="19" selection-start="0" selection-end="2353" vertical-scroll-proportion="0.35168195" vertical-offset="0" max-vertical-offset="981">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/lists/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="81" selection-start="2203" selection-end="2203" vertical-scroll-proportion="0.65749234" vertical-offset="105" max-vertical-offset="1110">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1005" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="23" selection-start="47" selection-end="47" vertical-scroll-proportion="0.014925373" vertical-offset="0" max-vertical-offset="1005" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="156" column="68" selection-start="3746" selection-end="5306" vertical-scroll-proportion="0.9104478" vertical-offset="1425" max-vertical-offset="2430" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/configs/administration/config.Manuels-MacBook-Air.local.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="26" selection-start="515" selection-end="515" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/lists/edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="47" selection-start="1601" selection-end="1603" vertical-scroll-proportion="0.5045872" vertical-offset="105" max-vertical-offset="1755">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/plugins/chosen/chosen.jquery.js">
@@ -787,111 +579,201 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6825" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/campaign/edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="146" column="67" selection-start="5727" selection-end="5727" vertical-scroll-proportion="0.5030488" vertical-offset="1860" max-vertical-offset="3240">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/listsmanagement.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="82" selection-start="1330" selection-end="1330" vertical-scroll-proportion="0.5522388" vertical-offset="195" max-vertical-offset="2775">
-          <folding>
-            <element signature="e#0#15#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="44" selection-start="2209" selection-end="2209" vertical-scroll-proportion="0.40298507" vertical-offset="0" max-vertical-offset="1005">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/configs/web/web.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="20" selection-start="33" selection-end="33" vertical-scroll-proportion="0.029850746" vertical-offset="0" max-vertical-offset="1005">
-          <folding />
-        </state>
+        <state line="2" column="20" selection-start="33" selection-end="33" vertical-scroll-proportion="0.029850746" vertical-offset="0" max-vertical-offset="1005" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/configs/logging/logging.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="109" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="109" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/configs/administration/config.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="496" selection-end="496" vertical-scroll-proportion="0.26865673" vertical-offset="0" max-vertical-offset="1005">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/campaigncleanup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="20" selection-start="477" selection-end="477" vertical-scroll-proportion="0.17910448" vertical-offset="0" max-vertical-offset="1005">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/campaignwatcher.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="152" column="53" selection-start="5889" selection-end="5889" vertical-scroll-proportion="0.76119405" vertical-offset="1365" max-vertical-offset="2370">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/campaigns.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="169" column="40" selection-start="5802" selection-end="5802" vertical-scroll-proportion="0.8208955" vertical-offset="1560" max-vertical-offset="2655">
-          <folding />
-        </state>
+        <state line="18" column="0" selection-start="496" selection-end="496" vertical-scroll-proportion="0.26865673" vertical-offset="0" max-vertical-offset="1005" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/configs/logging/logging.Manuels-MacBook-Air.local.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="26" selection-start="26" selection-end="26" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1005">
-          <folding />
-        </state>
+        <state line="0" column="26" selection-start="26" selection-end="26" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1005" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/reports/progress.html">
+    <entry file="file://$PROJECT_DIR$/data/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="103" column="34" selection-start="3577" selection-end="3577" vertical-scroll-proportion="0.7798165" vertical-offset="780" max-vertical-offset="1785">
-          <folding />
-        </state>
+        <state line="2" column="0" selection-start="64" selection-end="64" vertical-scroll-proportion="0.029850746" vertical-offset="0" max-vertical-offset="1005" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/scheduler.py">
+    <entry file="file:///Library/Python/2.7/site-packages/im/core/config.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="129" column="78" selection-start="4892" selection-end="4892" vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="1935">
-          <folding />
-        </state>
+        <state line="274" column="0" selection-start="8475" selection-end="8475" vertical-scroll-proportion="-0.18905473" vertical-offset="4150" max-vertical-offset="6240" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataAccess.py">
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="115" column="22" selection-start="3743" selection-end="3743" vertical-scroll-proportion="0.37810946" vertical-offset="1270" max-vertical-offset="3045">
-          <folding />
-        </state>
+        <state line="34" column="40" selection-start="1438" selection-end="1438" vertical-scroll-proportion="0.6542056" vertical-offset="90" max-vertical-offset="765" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/mysql_data_access.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="43" selection-start="2108" selection-end="2108" vertical-scroll-proportion="0.7432432" vertical-offset="405" max-vertical-offset="1125" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/registration/logged_out.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="14" selection-start="103" selection-end="103" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="540" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/hello.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="25" selection-start="150" selection-end="150" vertical-scroll-proportion="0.1635514" vertical-offset="0" max-vertical-offset="642" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/user/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="45" selection-end="121" vertical-scroll-proportion="0.07009346" vertical-offset="0" max-vertical-offset="1620" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/access_denied.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="9" selection-start="74" selection-end="74" vertical-scroll-proportion="-3.75" vertical-offset="0" max-vertical-offset="210" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/users.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="0" selection-start="1752" selection-end="1752" vertical-scroll-proportion="0.8358209" vertical-offset="0" max-vertical-offset="1695" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/lists/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="16" selection-start="2008" selection-end="2008" vertical-scroll-proportion="0.40366971" vertical-offset="444" max-vertical-offset="1905" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/listsmanagement.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="153" column="0" selection-start="4663" selection-end="4663" vertical-scroll-proportion="1.358209" vertical-offset="720" max-vertical-offset="2985" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/lists/list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="28" selection-start="1969" selection-end="1969" vertical-scroll-proportion="0.71865445" vertical-offset="0" max-vertical-offset="1065" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/user/list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="128" selection-start="1509" selection-end="1509" vertical-scroll-proportion="0.5810397" vertical-offset="0" max-vertical-offset="981" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="35" selection-start="1494" selection-end="1494" vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="2100">
+        <state line="85" column="4" selection-start="2139" selection-end="2161" vertical-scroll-proportion="0.5522388" vertical-offset="675" max-vertical-offset="3105" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="156" selection-end="156" vertical-scroll-proportion="0.08955224" vertical-offset="0" max-vertical-offset="1005" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/campaign/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="121" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="3570" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/scheduler/daily.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="99" column="51" selection-start="3997" selection-end="3997" vertical-scroll-proportion="0.411157" vertical-offset="1087" max-vertical-offset="2145">
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/authorizations.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="37" selection-start="864" selection-end="870" vertical-scroll-proportion="0.3880597" vertical-offset="0" max-vertical-offset="1005" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/campaign/authorize.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="66" selection-start="1700" selection-end="1700" vertical-scroll-proportion="0.64220184" vertical-offset="0" max-vertical-offset="981" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/campaign/list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="12" selection-start="147" selection-end="1899" vertical-scroll-proportion="0.71865445" vertical-offset="0" max-vertical-offset="981" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/navigationbar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="6" selection-start="1231" selection-end="1231" vertical-scroll-proportion="0.33639145" vertical-offset="0" max-vertical-offset="981" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/scheduler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="148" column="41" selection-start="5489" selection-end="5509" vertical-scroll-proportion="0.7910448" vertical-offset="1290" max-vertical-offset="2295" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configs/features.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="18" selection-start="86" selection-end="86" vertical-scroll-proportion="0.064935066" vertical-offset="0" max-vertical-offset="693" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configs/mysql/mysql.Manuels-MacBook-Air.local.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="693" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configs/mysql/mysql.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="103" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/registration/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="119" selection-start="554" selection-end="554" vertical-scroll-proportion="0.19282511" vertical-offset="111" max-vertical-offset="780" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configs/administration/config.Manuels-MacBook-Air.local.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="12" selection-start="197" selection-end="197" vertical-scroll-proportion="0.33333334" vertical-offset="0" max-vertical-offset="405" />
+      </provider>
+    </entry>
+    <entry file="file:///Library/Python/2.7/site-packages/pymongo/mongo_client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="365" column="0" selection-start="16634" selection-end="16634" vertical-scroll-proportion="0.33333334" vertical-offset="4950" max-vertical-offset="22035" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/campaignwatcher.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="19" selection-start="875" selection-end="875" vertical-scroll-proportion="0.4978355" vertical-offset="0" max-vertical-offset="2415" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="26" selection-start="1498" selection-end="1513" vertical-scroll-proportion="0.0" vertical-offset="57" max-vertical-offset="750" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/reports/progress.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="130" column="34" selection-start="4597" selection-end="4597" vertical-scroll-proportion="2.3262196" vertical-offset="424" max-vertical-offset="2130" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/campaigns.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="59" selection-start="886" selection-end="923" vertical-scroll-proportion="0.47619048" vertical-offset="0" max-vertical-offset="3090" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/mongo_data_access.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="0" selection-start="102" selection-end="102" vertical-scroll-proportion="0.10822511" vertical-offset="0" max-vertical-offset="3495" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/progressreport.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="40" selection-start="2190" selection-end="2229" vertical-scroll-proportion="0.70149255" vertical-offset="0" max-vertical-offset="1110">
-          <folding />
-        </state>
+        <state line="52" column="76" selection-start="1876" selection-end="1886" vertical-scroll-proportion="0.3164179" vertical-offset="342" max-vertical-offset="1395" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/campaigncleanup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="15" selection-start="430" selection-end="430" vertical-scroll-proportion="0.19402985" vertical-offset="0" max-vertical-offset="1005" />
       </provider>
     </entry>
   </component>

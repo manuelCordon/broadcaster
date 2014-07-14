@@ -1,26 +1,38 @@
 import datetime
 
 from bson import ObjectId
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from im.core.config import conf
 
-from dataAccess import ConfigDB
+from data.mongo_data_access import ConfigDB
 
 
 __author__ = 'manuel'
 
 max_tps = conf("config.max_tps")
 
+
 # Redirects to today's scheduler.
+@login_required
 def daily_no_day(request):
+    # Check for the specific permission.
+    if not request.user.has_perm("broadcaster.schedule_view"):
+        return render(request, "access_denied.html")
+
     day = datetime.date.today().isoformat()[0:10]
     return HttpResponseRedirect("/scheduler/daily/" + day)
 
 
 # Returns the list of tps pre assigned to accomplish the transactions within the time range.
+@login_required
 def daily(request, day):
+    # Check for the specific permission.
+    if not request.user.has_perm("broadcaster.schedule_view"):
+        return render(request, "access_denied.html")
+
     cdb = ConfigDB()
 
     # Get the requested date.
@@ -90,7 +102,12 @@ def daily(request, day):
 # Save the schedule grid and show it with a confirmation message.
 # If errors found, the data is not saved and an error message is displayed.
 @csrf_exempt
+@login_required
 def daily_save(request, day):
+    # Check for the specific permission.
+    if not request.user.has_perm("broadcaster.schedule_edit"):
+        return render(request, "access_denied.html")
+
     if request.method == "POST":
         cdb = ConfigDB()
         f = request.POST
@@ -127,6 +144,14 @@ def daily_save(request, day):
         # Insert schedules and build output.
         for key in daily_schedule.keys():
             cdb.set_document("schedules", daily_schedule[key]["_id"], daily_schedule[key])
-            cdb.set_document("campaigns", key, {"status": "ready to broadcast"})
+            c = cdb.get_document("campaigns", {"_id": key})
+
+            status = "ready to broadcast"
+            if c["authorization_required"] and not "authorized" in c:
+                status = "waiting for owner's authorization"
+            elif c["authorization_required"] and not c["authorized"]:
+                status = c["status"]
+
+            cdb.set_document("campaigns", key, {"status": status})
 
     return HttpResponseRedirect("/scheduler/daily/" + day)

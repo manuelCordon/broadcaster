@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block navigation %}
+    {% include "navigationbar.html" %}
+{% endblock %}
+
+{% block include_styles %}
+    <link rel="stylesheet" href="{% static 'plugins/vertical-tabs/bootstrap.vertical-tabs.css' %}" />
+    <link rel="stylesheet" href="{% static 'plugins/chosen/chosen.css' %}" />
+    <link rel="stylesheet" href="{% static 'plugins/stream_table/stream_table.css' %}" />
+    <link rel="stylesheet" href="{% static 'plugins/datetimepicker/css/bootstrap-datetimepicker.min.css' %}" />
+{% endblock %}
+
+
+{% block include_scripts %}
+    <script type="application/javascript" src="{% static 'plugins/chosen/chosen.jquery.js' %}"></script>
+    <script type="application/javascript" src="{% static 'plugins/chosen/chosen.ajaxaddition.jquery.js' %}"></script>
+    <script type="application/javascript" src="{% static 'plugins/stream_table/stream_table.js' %}"></script>
+    <script type="application/javascript" src="{% static 'plugins/mustache/mustache.js' %}"></script>
+    <script type="application/javascript" src="{% static 'plugins/datetimepicker/js/moment-2.5.1.js' %}"></script>
+    <script type="application/javascript" src="{% static 'plugins/datetimepicker/js/bootstrap-datetimepicker.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+
+    <h1>Formulario de usuario</h1>
+    <hr />
+    <form role="form" method="post" action="/user/save" {% if form.is_multipart %}enctype="multipart/form-data"{% endif %} >
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                Información general
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label for="id_username">Username:</label>
+                    {{ form.username }}
+                </div>
+                <div class="form-group">
+                    <label for="id_first_name">Nombre el usuario: </label>
+                    {{ form.first_name }}
+                </div>
+                <div class="form-group">
+                    <label for="id_last_name">Apellido del usuario:</label>
+                    {{ form.last_name }}
+                </div>
+                <div class="form-group">
+                    <label for="id_email">Correo electrónico:</label>
+                    {{ form.email }}
+                </div>
+                <div class="form-group">
+                    <label for="id_groups">Grupos a los que pertenece:</label>
+                    {{ form.groups }}
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                Contraseña
+            </div>
+            <div class="panel-body">
+                <p>Para generar una clave nueva seleccione el cheque:<br/>
+                {{ form.generate_password }} <label for="id_generate_password">Generar clave</label></p>
+                <p>Para acambiar manualmente la clave del usuario, ingresela dos veces:
+                <div class="form-group">
+                    <label for="id_password1">Nueva clave:</label>
+                    {{ form.password1 }}
+                </div>
+                <div class="form-group">
+                    <label for="id_password2">Nueva clave (otra vez):</label>
+                    {{ form.password2 }}
+                </div></p>
+
+            </div>
+        </div>
+    <!-- hidden inputs -->
+    {{ form.id }}
+    <input type="submit" class="btn btn-success" value="Guardar" />
+    <a class="btn btn-danger" href="/user/list">Descartar</a>
+    </form>
+{% endblock %}
+
+{% block body_end %}
+
+    <script type="text/javascript">
+
+        $(function() {
+            //chosen.
+            $('.chosen-select').chosen();
+
+            //read obly username if already set.
+            if ($("#id_username").val() != "")
+                $("#id_username").attr("readonly", true);
+        });
+
+        $("#id_generate_password").change(function(){
+            $("#id_password1").attr("disabled", $(this).prop("checked"));
+            $("#id_password2").attr("disabled", $(this).prop("checked"));
+        });
+
+    </script>
+
+{% endblock %}

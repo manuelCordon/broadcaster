@@ -1,0 +1,27 @@
+{% load static %}
+<nav class="navbar navbar-default" role="navigation">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1"></button>
+    <div class="navbar-brand"><img src="{% static 'images/logo.jpeg' %}" heigth="40" width="40" /> Broadcaster - {{ request.user.first_name }}</div>
+    <ul class="nav navbar-nav">
+        {% if perms.broadcaster.campaign_view %}
+            <li id="id_nav_campaign"><a href="/campaign/list">Lista de campañas</a></li>
+        {% endif %}
+        {% if perms.broadcaster.schedule_view %}
+            <li id="id_nav_scheduler"><a href="/scheduler/daily">Calendarizador</a></li>
+        {% endif %}
+        {% if perms.broadcaster.reports_view %}
+            <li id="id_nav_reports"><a href="/reports/progress" >Reportes</a></li>
+        {% endif %}
+        {% if perms.broadcaster.users_manage %}
+            <li id="id_nav_user"><a href="/user/list">Administración de usuarios</a></li>
+        {% endif %}
+        {% if perms.broadcaster.campaign_authorize %}
+            <li id="id_nav_authorization"><a href="/authorization/list">Autorización de campañas</a></li>
+        {% endif %}
+        <li><a href="/logout">Salir</a></li>
+  </ul>
+</nav>
+<script type="application/javascript">
+    active_li = "id_nav_" + "{{ request.get_full_path }}".split("/")[1];
+    document.getElementById(active_li).className += "active";
+</script>
